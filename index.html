@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ToLight 奇光板创意搭配方案，模块化磁吸拼接RGB氛围灯，适用于电竞房、卧室、直播间、商铺门店，提供专业灯光设计与一站式安装服务。">
+    <title>ToLight | 奇光板创意搭配方案</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dark: '#0f0f14',
+                        light: '#f8f9fa',
+                        accent: '#6366f1',
+                        glow: '#a78bfa'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto { content-visibility: auto; }
+            .glow-card { box-shadow: 0 0 25px rgba(167, 139, 250, 0.25); }
+            .glow-hover:hover { box-shadow: 0 0 40px rgba(167, 139, 250, 0.45); transform: translateY(-6px); }
+            .text-glow { text-shadow: 0 0 12px rgba(167, 139, 250, 0.6); }
+            .panel-bg {
+                background: linear-gradient(135deg, #4338ca 0%, #7c3aed 100%);
+            }
+        }
+    </style>
+    <style>
+        html { scroll-behavior: smooth; }
+        .layout-card { transition: all 0.4s ease; }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .fade-in.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .nav-scroll { transition: background 0.3s, padding 0.3s; }
+    </style>
+</head>
+<body class="bg-dark text-light font-sans antialiased">
+    <!-- 导航栏 -->
+    <nav id="navbar" class="nav-scroll fixed w-full z-50 py-5">
+        <div class="container mx-auto px-6 md:px-12 flex justify-between items-center">
+            <a href="#home" class="text-3xl font-bold tracking-wide text-glow">ToLight</a>
+            <div class="hidden md:flex items-center gap-8">
+                <a href="#home" data-i18n="nav_home" class="text-sm uppercase tracking-widest hover:text-glow transition">首页</a>
+                <a href="#layouts" data-i18n="nav_layouts" class="text-sm uppercase tracking-widest hover:text-glow transition">搭配方案</a>
+                <a href="#scene" data-i18n="nav_scene" class="text-sm uppercase tracking-widest hover:text-glow transition">场景应用</a>
+                <a href="#about" data-i18n="nav_about" class="text-sm uppercase tracking-widest hover:text-glow transition">品牌介绍</a>
+                <a href="#contact" data-i18n="nav_contact" class="text-sm uppercase tracking-widest hover:text-glow transition">咨询</a>
+                <div class="flex gap-2 border border-gray-600 rounded px-2 py-1">
+                    <button onclick="setLang('zh')" id="btn-zh" class="text-sm px-1 border-r border-gray-600">中</button>
+                    <button onclick="setLang('en')" id="btn-en" class="text-sm px-1">EN</button>
+                </div>
+            </div>
+            <button class="md:hidden text-2xl" id="menuToggle">
+                <i class="fa fa-bars"></i>
+            </button>
+        </div>
+        <div id="mobileMenu" class="hidden md:hidden absolute top-full left-0 w-full bg-dark/95 backdrop-blur-md px-6 py-6 border-t border-gray-800">
+            <div class="flex flex-col gap-5">
+                <a href="#home" data-i18n="nav_home" class="text-sm uppercase tracking-widest">首页</a>
+                <a href="#layouts" data-i18n="nav_layouts" class="text-sm uppercase tracking-widest">搭配方案</a>
+                <a href="#scene" data-i18n="nav_scene" class="text-sm uppercase tracking-widest">场景应用</a>
+                <a href="#about" data-i18n="nav_about" class="text-sm uppercase tracking-widest">品牌介绍</a>
+                <a href="#contact" data-i18n="nav_contact" class="text-sm uppercase tracking-widest">咨询</a>
+                <div class="flex gap-3 mt-2">
+                    <button onclick="setLang('zh')" class="px-3 py-1 border border-gray-600 rounded text-sm">中文</button>
+                    <button onclick="setLang('en')" class="px-3 py-1 border border-gray-600 rounded text-sm">English</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 首屏 -->
+    <section id="home" class="min-h-screen flex items-center relative overflow-hidden pt-24">
+        <div class="absolute inset-0 opacity-20 z-0 panel-bg"></div>
+        <div class="container mx-auto px-6 md:px-12 z-10">
+            <div class="max-w-3xl fade-in">
+                <h1 data-i18n="hero_title" class="text-5xl md:text-7xl font-bold mb-6 leading-tight text-glow">奇光板百变空间灯光艺术</h1>
+                <p data-i18n="hero_sub" class="text-xl md:text-2xl text-gray-300 mb-10">自由磁吸拼接、无线幻彩、电竞/卧室/直播/商铺一站式灯光搭配方案</p>
+                <a href="#layouts" class="inline-block px-10 py-4 bg-accent rounded-lg glow-card glow-hover transition-all">
+                    <span data-i18n="hero_btn">浏览全部搭配</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8套独立搭配 -->
+    <section id="layouts" class="py-24 bg-[#12121a]">
+        <div class="container mx-auto px-6 md:px-12">
+            <div class="text-center mb-20 fade-in">
+                <h2 data-i18n="layout_head" class="text-4xl md:text-5xl font-bold mb-4">经典拼接搭配组合</h2>
+                <p data-i18n="layout_desc" class="text-gray-400 max-w-2xl mx-auto">三角、六边形、方块多形态自由组合，数十套成熟上墙造型参考</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                <!--1 电竞三角-->
+                <div class="layout-card bg-dark rounded-xl overflow-hidden glow-card glow-hover fade-in">
+                   <img src="20260608143344_496_8.png" alt="12片三角奇光板电竞背景墙实拍" class="w-full h-64 object-cover">
+                    <div class="p-7">
+                        <h3 data-i18n="lay1_name" class="text-2xl font-semibold mb-2">电竞三角阵列</h3>
+                        <p data-i18n="lay1_size" class="text-sm text-gray-400 mb-3">12片等边三角 · 主机背景墙专用</p>
+                        <p data-i18n="lay1_text" class="text-gray-300 leading-relaxed">对称斜向排布，支持游戏同步光效，低蓝光高饱和度，氛围感拉满，主流电竞房标配造型。</p>
+                    </div>
+                </div>
+                <!--2 六边形蜂窝-->
+                <div class="layout-card bg-dark rounded-xl overflow-hidden glow-card glow-hover fade-in">
+                   <img src="20260608144529_497_8.png" alt="12片三角奇光板电竞背景墙实拍" class="w-full h-64 object-cover">
+                    <div class="p-7">
+                        <h3 data-i18n="lay2_name" class="text-2xl font-semibold mb-2">六边形星空矩阵</h3>
+                        <p data-i18n="lay2_size" class="text-sm text-gray-400 mb-3">16片六边形 · 客厅沙发背景</p>
+                        <p data-i18n="lay2_text" class="text-gray-300 leading-relaxed">蜂窝错落拼接，渐变流光模式，日常暖白光居家、派对多彩切换，百搭现代简约家装。</p>
+                    </div>
+                </div>
+                <!--3 方形床头-->
+                <div class="layout-card bg-dark rounded-xl overflow-hidden glow-card glow-hover fade-in">
+                  <img src="20260608145259_500_8.png" alt="12片三角奇光板电竞背景墙实拍" class="w-full h-64 object-cover">
+                    <div class="p-7">
+                        <h3 data-i18n="lay3_name" class="text-2xl font-semibold mb-2">长条方块床头造型</h3>
+                        <p data-i18n="lay3_size" class="text-sm text-gray-400 mb-3">8片方形组合 · 卧室床头柔光</p>
+                        <p data-i18n="lay3_text" class="text-gray-300 leading-relaxed">横向分层排布，低亮度助眠光模式，无可视频闪护眼，替代传统床头壁灯，极简温柔质感。</p>
+                    </div>
+                </div>
+                <!--4 L型转角混搭-->
+                <div class="layout-card bg-dark rounded-xl overflow-hidden glow-card glow-hover fade-in">
+                    <div class="w-full h-64 panel-bg flex items-center justify-center">
+                        <span class="text-glow text-xl">三角+方块混搭 · L型书桌</span>
+                    </div>
+                    <div class="p-7">
+                        <h3 data-i18n="lay4_name" class="text-2xl font-semibold mb-2">L型转角书桌布局</h3>
+                        <p data-i18n="lay4_size" class="text-sm text-gray-400 mb-3">10片三角+方块混搭 · 书房工位</p>
+                        <p data-i18n="lay4_text" class="text-gray-300 leading-relaxed">贴合墙角L走向，办公冷白光提升专注力，摸鱼休闲切换霓虹氛围，一物两用。</p>
+                    </div>
+                </div>
+                <!--5 扇形电视墙-->
+                <div class="layout-card bg-dark rounded-xl overflow-hidden glow-card glow-hover fade-in">
+                    <div class="w-full h-64 panel-bg flex items-center justify-center">
+                        <span class="text-glow text-xl">14片放射三角 · 电视影音墙</span>
+                    </div>
+                    <div class="p-7">
+                        <h3 data-i18n="lay5_name" class="text-2xl font-semibold mb-2">扇形电视影音墙</h3>
+                        <p data-i18n="lay5_size" class="text-sm text-gray-400 mb-3">14片三角放射拼接 · 客厅电视墙</p>
+                        <p data-i18n="lay5_text" class="text-gray-300 leading-relaxed">中心向外放射扇形，音乐律动同步，观影、K歌、追剧自动匹配光影节奏，家庭影音升级。</p>
+                    </div>
+                </div>
+                <!--6 迷你桌面套装-->
+                <div class="layout-card bg-dark rounded-xl overflow-hidden glow-card glow-hover fade-in">
+                    <div class="w-full h-64 panel-bg flex items-center justify-center">
+                        <span class="text-glow text-xl">4片迷你三角 · 桌面入门款</span>
+                    </div>
+                    <div class="p-7">
+                        <h3 data-i18n="lay6_name" class="text-2xl font-semibold mb-2">迷你桌面小型组合</h3>
+                        <p data-i18n="lay6_size" class="text-sm text-gray-400 mb-3">4片基础三角套装 · 桌面/出租屋</p>
+                        <p data-i18n="lay6_text" class="text-gray-300 leading-relaxed">小户型、出租房友好，免打孔背胶上墙，简易DIY造型，预算友好入门搭配方案。</p>
+                    </div>
+                </div>
+                <!--7 直播竖条-->
+                <div class="layout-card bg-dark rounded-xl overflow-hidden glow-card glow-hover fade-in">
+                    <div class="w-full h-64 panel-bg flex items-center justify-center">
+                        <span class="text-glow text-xl">12片竖长方块 · 直播背景</span>
+                    </div>
+                    <div class="p-7">
+                        <h3 data-i18n="lay7_name" class="text-2xl font-semibold mb-2">直播间竖条分层套装</h3>
+                        <p data-i18n="lay7_size" class="text-sm text-gray-400 mb-3">12片长方形竖排 · 主播背景专用</p>
+                        <p data-i18n="lay7_text" class="text-gray-300 leading-relaxed">竖向高低错落分层，美颜补光柔和不反光，带货、颜值、游戏直播多预设滤镜光效，提升画面质感。</p>
+                    </div>
+                </div>
+                <!--8 商铺橱窗长条-->
+                <div class="layout-card bg-dark rounded-xl overflow-hidden glow-card glow-hover fade-in">
+                    <div class="w-full h-64 panel-bg flex items-center justify-center">
+                        <span class="text-glow text-xl">20片长方块 · 商铺橱窗</span>
+                    </div>
+                    <div class="p-7">
+                        <h3 data-i18n="lay8_name" class="text-2xl font-semibold mb-2">商铺橱窗长条组合</h3>
+                        <p data-i18n="lay8_size" class="text-sm text-gray-400 mb-3">20片长方块拼接 · 门店门头橱窗</p>
+                        <p data-i18n="lay8_text" class="text-gray-300 leading-relaxed">横向整排延展，定时节日流光模式，高亮度户外防水款可选，奶茶店、潮牌店、美甲店引流吸睛。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 四大场景大图 -->
+    <section id="scene" class="py-24 bg-dark">
+        <div class="container mx-auto px-6 md:px-12">
+            <div class="text-center mb-16 fade-in">
+                <h2 data-i18n="scene_head" class="text-4xl font-bold mb-4">全场景适配空间</h2>
+                <p data-i18n="scene_desc" class="text-gray-400">电竞房、卧室、客厅、书房、直播间、店铺橱窗全覆盖</p>
+            </div>
+            <!--电竞-->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20 fade-in">
+                <div class="w-full h-80 panel-bg rounded-xl glow-card"></div>
+                <div>
+                    <h3 data-i18n="sc1_title" class="text-3xl font-bold mb-4">电竞游戏空间</h3>
+                    <p data-i18n="sc1_text" class="text-gray-300 leading-relaxed mb-6">支持游戏SDK联动，键鼠、主机画面同步色彩变化，高对比霓虹光效，打造专业直播、上分对战沉浸式环境。</p>
+                    <div class="flex gap-4 flex-wrap">
+                        <span class="px-3 py-1 border border-glow rounded text-sm">游戏同步</span>
+                        <span class="px-3 py-1 border border-glow rounded text-sm">高幻彩亮度</span>
+                        <span class="px-3 py-1 border border-glow rounded text-sm">低延迟响应</span>
+                    </div>
+                </div>
+            </div>
+            <!--居家卧室-->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20 fade-in">
+                <div class="order-2 lg:order-1">
+                    <h3 data-i18n="sc2_title" class="text-3xl font-bold mb-4">居家休憩空间</h3>
+                    <p data-i18n="sc2_text" class="text-gray-300 leading-relaxed mb-6">可调节暖光助眠模式，无可视频闪，卧室、客厅柔和氛围感，老人小孩家庭均可安全使用，APP定时开关。</p>
+                    <div class="flex gap-4 flex-wrap">
+                        <span class="px-3 py-1 border border-glow rounded text-sm">护眼柔光</span>
+                        <span class="px-3 py-1 border border-glow rounded text-sm">定时休眠</span>
+                        <span class="px-3 py-1 border border-glow rounded text-sm">语音控制</span>
+                    </div>
+                </div>
+                <div class="w-full h-80 panel-bg rounded-xl glow-card order-1 lg:order-2"></div>
+            </div>
+            <!--直播-->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20 fade-in">
+                <div class="w-full h-80 panel-bg rounded-xl glow-card"></div>
+                <div>
+                    <h3 data-i18n="sc3_title" class="text-3xl font-bold mb-4">直播演播空间</h3>
+                    <p data-i18n="sc3_text" class="text-gray-300 leading-relaxed mb-6">专业美颜补光光谱，多档位色温调节，无可视频闪，支持一键切换带货/娱乐/冷白皮模式，竖屏横屏背景都适配。</p>
+                    <div class="flex gap-4 flex-wrap">
+                        <span class="px-3 py-1 border border-glow rounded text-sm">直播专用光谱</span>
+                        <span class="px-3 py-1 border border-glow rounded text-sm">无相机频闪</span>
+                        <span class="px-3 py-1 border border-glow rounded text-sm">一键场景预设</span>
+                    </div>
+                </div>
+            </div>
+            <!--商铺-->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center fade-in">
+                <div class="order-2 lg:order-1">
+                    <h3 data-i18n="sc4_title" class="text-3xl font-bold mb-4">商铺门店亮化</h3>
+                    <p data-i18n="sc4_text" class="text-gray-300 leading-relaxed mb-6">室内防潮防水灯板，超长续航稳定供电，节日模板一键套用，门头、橱窗、收银台多位置安装，大幅提升门店辨识度与客流吸引力。</p>
+                    <div class="flex gap-4 flex-wrap">
+                        <span class="px-3 py-1 border border-glow rounded text-sm">防潮防水款</span>
+                        <span class="px-3 py-1 border border-glow rounded text-sm">节日动态模板</span>
+                        <span class="px-3 py-1 border border-glow rounded text-sm">工程批量质保</span>
+                    </div>
+                </div>
+                <div class="w-full h-80 panel-bg rounded-xl glow-card order-1 lg:order-2"></div>
+            </div>
+        </div>
+    </section>
+
+    <!--品牌介绍-->
+    <section id="about" class="py-24 bg-[#12121a]">
+        <div class="container mx-auto px-6 md:px-12">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+                <div class="fade-in">
+                    <div class="w-full h-96 panel-bg rounded-xl glow-card"></div>
+                </div>
+                <div class="fade-in">
+                    <h2 data-i18n="about_head" class="text-4xl font-bold mb-6">关于 ToLight</h2>
+                    <p data-i18n="about_p1" class="text-gray-300 leading-relaxed mb-6">ToLight专注模块化奇光板灯光系统研发，主打自由磁吸拼接幻彩墙面灯板。自研磁吸拼接结构、高精度RGB灯珠与智能中控芯片，兼顾颜值、亮度与耐用性。</p>
+                    <p data-i18n="about_p2" class="text-gray-300 leading-relaxed mb-8">我们持续输出上千套实景搭配方案，适配家用、直播、电竞、商铺全场景，配套手机APP、遥控器、语音三方操控，一站式解决空间氛围灯光改造需求。</p>
+                    <div class="flex gap-8">
+                        <div>
+                            <p class="text-3xl font-bold text-glow">6+</p>
+                            <p data-i18n="stat1" class="text-sm text-gray-400">年灯光硬件研发</p>
+                        </div>
+                        <div>
+                            <p class="text-3xl font-bold text-glow">120+</p>
+                            <p data-i18n="stat2" class="text-sm text-gray-400">成熟搭配造型</p>
+                        </div>
+                        <div>
+                            <p class="text-3xl font-bold text-glow">30W+</p>
+                            <p data-i18n="stat3" class="text-sm text-gray-400">全球用户装机</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--咨询表单-->
+    <section id="contact" class="py-24 bg-dark">
+        <div class="container mx-auto px-6 md:px-12">
+            <div class="text-center mb-16 fade-in">
+                <h2 data-i18n="contact_head" class="text-4xl font-bold mb-4">搭配定制与采购咨询</h2>
+                <p data-i18n="contact_desc" class="text-gray-400">支持批量工程单、家装定制、主播套装搭配指导</p>
+            </div>
+            <div class="max-w-2xl mx-auto fade-in">
+                <form id="contactForm" class="space-y-7">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="name" data-i18n="lab_name" class="block text-sm text-gray-400 mb-2">姓名</label>
+                            <input id="name" type="text" class="w-full bg-[#1a1a27] border border-gray-700 rounded-lg px-4 py-3 focus:border-glow outline-none transition">
+                        </div>
+                        <div>
+                            <label for="email" data-i18n="lab_mail" class="block text-sm text-gray-400 mb-2">邮箱</label>
+                            <input id="email" type="email" class="w-full bg-[#1a1a27] border border-gray-700 rounded-lg px-4 py-3 focus:border-glow outline-none transition">
+                        </div>
+                    </div>
+                    <div>
+                        <label for="demand" data-i18n="lab_demand" class="block text-sm text-gray-400 mb-2">需求类型</label>
+                        <select id="demand" class="w-full bg-[#1a1a27] border border-gray-700 rounded-lg px-4 py-3 focus:border-glow outline-none">
+                            <option data-i18n="opt1">家用个人搭配</option>
+                            <option data-i18n="opt2">电竞主播套装</option>
+                            <option data-i18n="opt3">家装工程批量</option>
+                            <option data-i18n="opt4">商铺门店亮化</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="message" data-i18n="lab_msg" class="block text-sm text-gray-400 mb-2">备注说明（墙面尺寸、想要的造型等）</label>
+                        <textarea id="message" rows="5" class="w-full bg-[#1a1a27] border border-gray-700 rounded-lg px-4 py-3 focus:border-glow outline-none resize-none"></textarea>
+                    </div>
+                    <button type="submit" class="w-full py-4 bg-accent rounded-lg glow-card glow-hover text-lg font-medium transition">
+                        <span data-i18n="btn_submit">提交咨询</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!--页脚-->
+    <footer class="py-12 bg-[#09090e] border-t border-gray-800">
+        <div class="container mx-auto px-6 md:px-12">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-8">
+                <div>
+                    <p class="text-3xl font-bold text-glow">ToLight</p>
+                    <p data-i18n="footer_slogan" class="text-gray-500 mt-2">模块化奇光板氛围灯光专家</p>
+                </div>
+                <div class="flex gap-6 text-xl">
+                    <a href="#" class="hover:text-glow transition"><i class="fa fa-instagram"></i></a>
+                    <a href="#" class="hover:text-glow transition"><i class="fa fa-youtube-play"></i></a>
+                    <a href="#" class="hover:text-glow transition"><i class="fa fa-weibo"></i></a>
+                    <a href="#" class="hover:text-glow transition"><i class="fa fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="mt-10 pt-8 border-t border-gray-800 text-center text-sm text-gray-500">
+                <p>&copy; 2026 ToLight. <span data-i18n="footer_copyright">All rights reserved. 奇光板灯光设计版权所有</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const langPack = {
+            zh: {
+                nav_home: "首页", nav_layouts: "搭配方案", nav_scene: "场景应用", nav_about: "品牌介绍", nav_contact: "咨询",
+                hero_title: "奇光板百变空间灯光艺术", hero_sub: "自由磁吸拼接、无线幻彩、电竞/卧室/直播/商铺一站式灯光搭配方案", hero_btn: "浏览全部搭配",
+                layout_head: "经典拼接搭配组合", layout_desc: "三角、六边形、方块多形态自由组合，数十套成熟上墙造型参考",
+                lay1_name:"电竞三角阵列", lay1_size:"12片等边三角 · 主机背景墙专用", lay1_text:"对称斜向排布，支持游戏同步光效，低蓝光高饱和度，氛围感拉满，主流电竞房标配造型。",
+                lay2_name:"六边形星空矩阵", lay2_size:"16片六边形 · 客厅沙发背景", lay2_text:"蜂窝错落拼接，渐变流光模式，日常暖白光居家、派对多彩切换，百搭现代简约家装。",
+                lay3_name:"长条方块床头造型", lay3_size:"8片方形组合 · 卧室床头柔光", lay3_text:"横向分层排布，低亮度助眠光模式，无可视频闪护眼，替代传统床头壁灯，极简温柔质感。",
+                lay4_name:"L型转角书桌布局", lay4_size:"10片三角+方块混搭 · 书房工位", lay4_text:"贴合墙角L走向，办公冷白光提升专注力，摸鱼休闲切换霓虹氛围，一物两用。",
+                lay5_name:"扇形电视影音墙", lay5_size:"14片三角放射拼接 · 客厅电视墙", lay5_text:"中心向外放射扇形，音乐律动同步，观影、K歌、追剧自动匹配光影节奏，家庭影音升级。",
+                lay6_name:"迷你桌面小型组合", lay6_size:"4片基础三角套装 · 桌面/出租屋", lay6_text:"小户型、出租房友好，免打孔背胶上墙，简易DIY造型，预算友好入门搭配方案。",
+                lay7_name:"直播间竖条分层套装", lay7_size:"12片长方形竖排 · 主播背景专用", lay7_text:"竖向高低错落分层，美颜补光柔和不反光，带货、颜值、游戏直播多预设滤镜光效，提升画面质感。",
+                lay8_name:"商铺橱窗长条组合", lay8_size:"20片长方块拼接 · 门店门头橱窗", lay8_text:"横向整排延展，定时节日流光模式，高亮度户外防水款可选，奶茶店、潮牌店、美甲店引流吸睛。",
+                scene_head:"全场景适配空间", scene_desc:"电竞房、卧室、客厅、书房、直播间、店铺橱窗全覆盖",
+                sc1_title:"电竞游戏空间", sc1_text:"支持游戏SDK联动，键鼠、主机画面同步色彩变化，高对比霓虹光效，打造专业直播、上分对战沉浸式环境。",
+                sc2_title:"居家休憩空间", sc2_text:"可调节暖光助眠模式，无可视频闪，卧室、客厅柔和氛围感，老人小孩家庭均可安全使用，APP定时开关。",
+                sc3_title:"直播演播空间", sc3_text:"专业美颜补光光谱，多档位色温调节，无可视频闪，支持一键切换带货/娱乐/冷白皮模式，竖屏横屏背景都适配。",
+                sc4_title:"商铺门店亮化", sc4_text:"室内防潮防水灯板，超长续航稳定供电，节日模板一键套用，门头、橱窗、收银台多位置安装，大幅提升门店辨识度与客流吸引力。",
+                about_head:"关于 ToLight", about_p1:"ToLight专注模块化奇光板灯光系统研发，主打自由磁吸拼接幻彩墙面灯板。自研磁吸拼接结构、高精度RGB灯珠与智能中控芯片，兼顾颜值、亮度与耐用性。",
+                about_p2:"我们持续输出上千套实景搭配方案，适配家用、直播、电竞、商铺全场景，配套手机APP、遥控器、语音三方操控，一站式解决空间氛围灯光改造需求。",
+                stat1:"年灯光硬件研发", stat2:"成熟搭配造型", stat3:"全球用户装机",
+                contact_head:"搭配定制与采购咨询", contact_desc:"支持批量工程单、家装定制、主播套装搭配指导",
+                lab_name:"姓名", lab_mail:"邮箱", lab_demand:"需求类型", lab_msg:"备注说明（墙面尺寸、想要的造型等）",
+                opt1:"家用个人搭配", opt2:"电竞主播套装", opt3:"家装工程批量", opt4:"商铺门店亮化", btn_submit:"提交咨询",
+                footer_slogan:"模块化奇光板氛围灯光专家", footer_copyright:"All rights reserved. 奇光板灯光设计版权所有"
+            },
+            en: {
+                nav_home: "Home", nav_layouts: "Layouts", nav_scene: "Scenes", nav_about: "About", nav_contact: "Inquiry",
+                hero_title: "Modular Glow Panel Lighting Art", hero_sub: "Magnetic splice, RGB dynamic light, layouts for gaming, bedroom, stream & store", hero_btn: "View All Layouts",
+                layout_head: "Classic Panel Layout Combinations", layout_desc: "Triangle, hexagon & square panels, dozens of proven wall mounting designs",
+                lay1_name:"Gaming Triangle Array", lay1_size:"12 Equilateral Triangles | PC Background Wall", lay1_text:"Symmetrical diagonal layout, game-sync lighting, low blue light, top pick for standard gaming rooms.",
+                lay2_name:"Hexagon Star Matrix", lay2_size:"16 Hexagon Panels | Sofa Background Wall", lay2_text:"Honeycomb staggered layout, gradient flow modes, warm white for daily use, vibrant colors for parties, fits modern interiors.",
+                lay3_name:"Rectangular Bedhead Layout", lay3_size:"8 Square Panels | Soft Bedroom Lighting", lay3_text:"Horizontal layered setup, dim sleep-friendly mode, flicker-free eye protection, minimalist replacement for bedside lamps.",
+                lay4_name:"L-Shaped Desk Corner Setup", lay4_size:"10 Mixed Triangles & Squares | Home Office", lay4_text:"Fits wall corners, cool white focus light for work, neon ambient mode for relaxation, dual-purpose design.",
+                lay5_name:"Fan-Shaped TV Media Wall", lay5_size:"14 Radiating Triangles | Living Room TV", lay5_text:"Center-out fan shape, music rhythm sync, auto light shifts for movies, karaoke & streaming.",
+                lay6_name:"Mini Desktop Starter Kit", lay6_size:"4 Basic Triangles | Small Rooms / Rental", lay6_text:"Rental & compact space friendly, adhesive no-drill install, easy DIY entry-level budget layout.",
+                lay7_name:"Vertical Streamer Layer Kit", lay7_size:"12 Vertical Rectangles | Stream Background", lay7_text:"Staggered vertical layers, soft fill light no camera reflection, preset modes for sales, beauty & game streaming, boost video quality.",
+                lay8_name:"Store Window Long Panel Set", lay8_size:"20 Long Rectangles | Shop Facade & Window", lay8_text:"Full horizontal stretch, timer holiday animation, waterproof high-bright option, ideal for milk tea, streetwear & nail salon customer attraction.",
+                scene_head:"Multi-Space Compatibility", scene_desc:"Gaming room, bedroom, living room, study, stream studio & store display",
+                sc1_title:"E-Sports Gaming Space", sc1_text:"SDK game integration, real-time screen color sync, high-contrast neon lights for streaming & competitive gaming immersion.",
+                sc2_title:"Residential Relax Space", sc2_text:"Adjustable warm sleep light, zero visible flicker, safe for families, APP timer & voice control supported.",
+                sc3_title:"Live Stream Studio", sc3_text:"Professional beauty fill spectrum, multi-color temp, zero visible flicker, one-click presets for sales/entertainment/cool skin tone, fits vertical & horizontal backgrounds.",
+                sc4_title:"Retail Store Lighting", sc4_text:"Moisture-proof indoor panels, stable long-run power, one-click holiday templates, install on facade, window & checkout to lift brand visibility & foot traffic.",
+                about_head:"About ToLight", about_p1:"ToLight develops modular magnetic glow panel systems. Self-developed snap structure, premium RGB LEDs & smart control chips balance aesthetics, brightness & longevity.",
+                about_p2:"We provide hundreds of real-scene layout templates for home, stream, game & store. Controlled via APP, remote & voice, full one-stop ambient lighting renovation.",
+                stat1:"Years Hardware R&D", stat2:"Proven Layout Designs", stat3:"Global Installed Units",
+                contact_head:"Custom Layout & Wholesale Inquiry", contact_desc:"Bulk construction orders, home decor custom, streamer package layout guidance",
+                lab_name:"Name", lab_mail:"Email", lab_demand:"Demand Type", lab_msg:"Notes (wall size, preferred shape, etc.)",
+                opt1:"Personal Home Use", opt2:"Streamer Gaming Bundle", opt3:"Bulk Home Renovation Project", opt4:"Retail Store Lighting", btn_submit:"Send Inquiry",
+                footer_slogan:"Modular Glow Panel Ambient Lighting Specialist", footer_copyright:"All rights reserved"
+            }
+        };
+
+        let currentLang = "zh";
+        function setLang(lang) {
+            currentLang = lang;
+            document.getElementById("btn-zh").classList.toggle("text-glow", lang === "zh");
+            document.getElementById("btn-en").classList.toggle("text-glow", lang === "en");
+            document.querySelectorAll("[data-i18n]").forEach(el => {
+                const key = el.getAttribute("data-i18n");
+                if(langPack[lang][key]) el.innerText = langPack[lang][key];
+            });
+            document.documentElement.lang = lang === "zh" ? "zh-CN" : "en-US";
+        }
+
+        // 移动端菜单点击关闭
+        document.querySelectorAll('#mobileMenu a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('mobileMenu').classList.add('hidden');
+            });
+        });
+
+        // 表单提交反馈
+        document.querySelector('form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const btn = e.target.querySelector('button[type="submit"]');
+            const originalText = btn.querySelector('span').innerText;
+            btn.querySelector('span').innerText = currentLang === 'zh' ? '已提交，我们会尽快回复' : 'Sent! We\'ll reply soon.';
+            btn.style.backgroundColor = '#22c55e';
+            setTimeout(() => {
+                btn.querySelector('span').innerText = originalText;
+                btn.style.backgroundColor = '';
+                e.target.reset();
+            }, 2500);
+        });
+
+        document.getElementById("menuToggle").addEventListener("click", ()=>{
+            document.getElementById("mobileMenu").classList.toggle("hidden");
+        });
+
+        window.addEventListener("scroll", ()=>{
+            const nav = document.getElementById("navbar");
+            if(window.scrollY > 60){
+                nav.classList.add("bg-dark/92", "backdrop-blur-md", "py-3");
+                nav.classList.remove("py-5");
+            }else{
+                nav.classList.remove("bg-dark/92", "backdrop-blur-md", "py-3");
+                nav.classList.add("py-5");
+            }
+        });
+
+        function runFadeAnim() {
+            document.querySelectorAll(".fade-in").forEach(item=>{
+                const rect = item.getBoundingClientRect();
+                if(rect.top < window.innerHeight - 120) item.classList.add("show");
+            })
+        }
+        window.addEventListener("scroll", runFadeAnim);
+        window.addEventListener("load", runFadeAnim);
+
+        document.addEventListener("DOMContentLoaded", ()=>{
+            setLang(currentLang);
+            runFadeAnim();
+        });
+    </script>
+</body>
+</html>
