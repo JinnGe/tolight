@@ -7,358 +7,67 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background: #FFFFFF;
-            color: #1E2A3E;
-            line-height: 1.5;
-            scroll-behavior: smooth;
-        }
-
-        .container {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: #FFFFFF; color: #1E2A3E; line-height: 1.5; scroll-behavior: smooth; }
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 2rem; }
         /* 导航栏 */
-        .navbar {
-            position: sticky;
-            top: 0;
-            background: rgba(255,255,255,0.96);
-            backdrop-filter: blur(12px);
-            z-index: 100;
-            border-bottom: 1px solid #ECF0F5;
-            padding: 1.2rem 0;
-        }
-        .nav-wrapper {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-        .logo {
-            font-family: 'Poppins', sans-serif;
-            font-size: 1.8rem;
-            font-weight: 700;
-            letter-spacing: -0.02em;
-            background: linear-gradient(135deg, #1E2A3E, #2C5A8C);
-            background-clip: text;
-            -webkit-background-clip: text;
-            color: transparent;
-        }
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-        .nav-links a {
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.95rem;
-            color: #2C3E50;
-            transition: 0.2s;
-        }
-        .nav-links a:hover {
-            color: #2C6E9E;
-        }
-        .lang-btn {
-            background: none;
-            border: none;
-            font-weight: 500;
-            font-size: 0.95rem;
-            cursor: pointer;
-            padding: 0.5rem 0.8rem;
-            border-radius: 40px;
-            transition: 0.2s;
-            font-family: inherit;
-            color: #2C3E50;
-        }
-        .lang-btn.active {
-            background: #1E2A3E;
-            color: white;
-        }
-        .btn-outline {
-            border: 1px solid #CBD5E1;
-            padding: 0.5rem 1.2rem;
-            border-radius: 40px;
-            background: transparent;
-            font-weight: 500;
-            transition: 0.2s;
-        }
-        .btn-outline:hover {
-            background: #1E2A3E;
-            border-color: #1E2A3E;
-            color: white;
-        }
-        /* 主要按钮调亮 —— 使用明亮的科技蓝 */
-        .btn-primary {
-            background: #2C7BE5;
-            color: white;
-            padding: 0.5rem 1.2rem;
-            border-radius: 40px;
-            font-weight: 500;
-            border: none;
-            transition: 0.2s;
-            box-shadow: 0 2px 6px rgba(44,123,229,0.2);
-        }
-        .btn-primary:hover {
-            background: #1E5BBF;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 12px rgba(44,123,229,0.3);
-        }
-        .btn-large {
-            padding: 0.9rem 2rem;
-            font-size: 1rem;
-        }
-
-        /* Hero 区域 */
-        .hero-section {
-            padding: 5rem 0 4rem;
-            text-align: center;
-        }
-        .hero-badge {
-            display: inline-block;
-            background: #EFF4FB;
-            padding: 0.3rem 1rem;
-            border-radius: 40px;
-            font-size: 0.8rem;
-            font-weight: 500;
-            color: #2C6E9E;
-            margin-bottom: 1.5rem;
-        }
-        .hero-section h1 {
-            font-size: 3.2rem;
-            font-weight: 700;
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(145deg, #1E2A3E, #2C5A8C);
-            background-clip: text;
-            -webkit-background-clip: text;
-            color: transparent;
-            max-width: 800px;
-            margin: 0 auto 1rem;
-        }
-        .hero-section p {
-            font-size: 1.2rem;
-            color: #4A5B6E;
-            max-width: 640px;
-            margin: 0 auto 2rem;
-        }
-        .cta-group {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
+        .navbar { position: sticky; top: 0; background: rgba(255,255,255,0.96); backdrop-filter: blur(12px); z-index: 100; border-bottom: 1px solid #ECF0F5; padding: 1.2rem 0; }
+        .nav-wrapper { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+        .logo { font-family: 'Poppins', sans-serif; font-size: 1.8rem; font-weight: 700; letter-spacing: -0.02em; background: linear-gradient(135deg, #1E2A3E, #2C5A8C); background-clip: text; -webkit-background-clip: text; color: transparent; }
+        .nav-links { display: flex; gap: 2rem; align-items: center; flex-wrap: wrap; }
+        .nav-links a { text-decoration: none; font-weight: 500; font-size: 0.95rem; color: #2C3E50; transition: 0.2s; }
+        .nav-links a:hover { color: #2C6E9E; }
+        .lang-btn { background: none; border: none; font-weight: 500; font-size: 0.95rem; cursor: pointer; padding: 0.5rem 0.8rem; border-radius: 40px; transition: 0.2s; font-family: inherit; color: #2C3E50; }
+        .lang-btn.active { background: #1E2A3E; color: white; }
+        .btn-outline { border: 1px solid #CBD5E1; padding: 0.5rem 1.2rem; border-radius: 40px; background: transparent; font-weight: 500; transition: 0.2s; }
+        .btn-outline:hover { background: #1E2A3E; border-color: #1E2A3E; color: white; }
+        .btn-primary { background: #2C7BE5; color: white; padding: 0.5rem 1.2rem; border-radius: 40px; font-weight: 500; border: none; transition: 0.2s; box-shadow: 0 2px 6px rgba(44,123,229,0.2); }
+        .btn-primary:hover { background: #1E5BBF; transform: translateY(-2px); box-shadow: 0 6px 12px rgba(44,123,229,0.3); }
+        .btn-large { padding: 0.9rem 2rem; font-size: 1rem; }
+        /* Hero */
+        .hero-section { padding: 5rem 0 4rem; text-align: center; }
+        .hero-badge { display: inline-block; background: #EFF4FB; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.8rem; font-weight: 500; color: #2C6E9E; margin-bottom: 1.5rem; }
+        .hero-section h1 { font-size: 3.2rem; font-weight: 700; font-family: 'Poppins', sans-serif; background: linear-gradient(145deg, #1E2A3E, #2C5A8C); background-clip: text; -webkit-background-clip: text; color: transparent; max-width: 800px; margin: 0 auto 1rem; }
+        .hero-section p { font-size: 1.2rem; color: #4A5B6E; max-width: 640px; margin: 0 auto 2rem; }
+        .cta-group { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
         /* 公用标题 */
-        .section-title {
-            font-size: 2rem;
-            font-weight: 600;
-            font-family: 'Poppins', sans-serif;
-            text-align: center;
-            margin-bottom: 0.8rem;
-        }
-        .section-sub {
-            text-align: center;
-            color: #5A6F8C;
-            max-width: 680px;
-            margin: 0 auto 3rem;
-        }
-
+        .section-title { font-size: 2rem; font-weight: 600; font-family: 'Poppins', sans-serif; text-align: center; margin-bottom: 0.8rem; }
+        .section-sub { text-align: center; color: #5A6F8C; max-width: 680px; margin: 0 auto 3rem; }
         /* 产品区域 */
-        .products-section {
-            padding: 2rem 0 4rem;
-        }
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-        .product-card {
-            background: white;
-            border-radius: 2rem;
-            overflow: hidden;
-            box-shadow: 0 12px 28px rgba(0,0,0,0.03), 0 0 0 1px #ECF0F5;
-            transition: 0.3s;
-        }
-        .product-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 24px 40px rgba(0,0,0,0.08), 0 0 0 1px #DBE4ED;
-        }
-        .product-img img {
-            width: 100%;
-            aspect-ratio: 1;
-            object-fit: cover;
-            display: block;
-        }
-        .product-info {
-            padding: 1.5rem;
-        }
-        .product-title {
-            font-size: 1.4rem;
-            font-weight: 600;
-            margin-bottom: 0.4rem;
-        }
-        .product-desc {
-            color: #5F728B;
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-        }
-        .product-tag {
-            font-size: 0.7rem;
-            font-weight: 500;
-            background: #ECF3FA;
-            display: inline-block;
-            padding: 0.2rem 0.7rem;
-            border-radius: 30px;
-            color: #2C5A8C;
-        }
-
-        /* 设计哲学区域 */
-        .philosophy-section {
-            background: #F9FBFE;
-            padding: 5rem 0;
-            margin: 1rem 0 2rem 0;
-            border-radius: 3rem;
-        }
-        .philosophy-grid {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 2.5rem;
-        }
-        .philosophy-card {
-            flex: 0 0 280px;
-            text-align: center;
-            padding: 0 0.5rem;
-        }
-        .philosophy-icon {
-            font-size: 2.8rem;
-            color: #2C6E9E;
-            margin-bottom: 1rem;
-        }
-        .philosophy-card h3 {
-            font-weight: 600;
-            margin-bottom: 0.75rem;
-            font-size: 1.3rem;
-        }
-        .philosophy-card p {
-            color: #4B5E77;
-            font-size: 0.9rem;
-            line-height: 1.5;
-        }
-
+        .products-section { padding: 2rem 0 4rem; }
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 2rem; }
+        .product-card { background: white; border-radius: 2rem; overflow: hidden; box-shadow: 0 12px 28px rgba(0,0,0,0.03), 0 0 0 1px #ECF0F5; transition: 0.3s; }
+        .product-card:hover { transform: translateY(-6px); box-shadow: 0 24px 40px rgba(0,0,0,0.08), 0 0 0 1px #DBE4ED; }
+        .product-img img { width: 100%; aspect-ratio: 1; object-fit: cover; display: block; }
+        .product-info { padding: 1.5rem; }
+        .product-title { font-size: 1.4rem; font-weight: 600; margin-bottom: 0.4rem; }
+        .product-desc { color: #5F728B; font-size: 0.9rem; margin-bottom: 1rem; }
+        .product-tag { font-size: 0.7rem; font-weight: 500; background: #ECF3FA; display: inline-block; padding: 0.2rem 0.7rem; border-radius: 30px; color: #2C5A8C; }
+        /* 设计哲学 */
+        .philosophy-section { background: #F9FBFE; padding: 5rem 0; margin: 1rem 0 2rem 0; border-radius: 3rem; }
+        .philosophy-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 2.5rem; }
+        .philosophy-card { flex: 0 0 280px; text-align: center; padding: 0 0.5rem; }
+        .philosophy-icon { font-size: 2.8rem; color: #2C6E9E; margin-bottom: 1rem; }
+        .philosophy-card h3 { font-weight: 600; margin-bottom: 0.75rem; font-size: 1.3rem; }
+        .philosophy-card p { color: #4B5E77; font-size: 0.9rem; line-height: 1.5; }
         /* 智能生态 */
-        .features-section {
-            padding: 3rem 0 5rem;
-        }
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-        .feature-item {
-            background: white;
-            border-radius: 1.8rem;
-            padding: 2rem;
-            box-shadow: 0 6px 14px rgba(0,0,0,0.02), 0 0 0 1px #ECF0F5;
-        }
-        .feature-icon {
-            font-size: 2rem;
-            background: #EFF4FB;
-            width: 56px;
-            height: 56px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 1.2rem;
-            margin-bottom: 1.2rem;
-            color: #2C5A8C;
-        }
-
+        .features-section { padding: 3rem 0 5rem; }
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
+        .feature-item { background: white; border-radius: 1.8rem; padding: 2rem; box-shadow: 0 6px 14px rgba(0,0,0,0.02), 0 0 0 1px #ECF0F5; }
+        .feature-icon { font-size: 2rem; background: #EFF4FB; width: 56px; height: 56px; display: flex; align-items: center; justify-content: center; border-radius: 1.2rem; margin-bottom: 1.2rem; color: #2C5A8C; }
         /* 灵感社区 */
-        .inspiration-section {
-            background: #F2F6FC;
-            border-radius: 2.5rem;
-            padding: 3rem 2rem;
-            margin: 2rem 0;
-        }
-        .grid-gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-        .gallery-item img {
-            width: 100%;
-            aspect-ratio: 4/3;
-            object-fit: cover;
-            border-radius: 1.5rem;
-            display: block;
-        }
-
+        .inspiration-section { background: #F2F6FC; border-radius: 2.5rem; padding: 3rem 2rem; margin: 2rem 0; }
+        .grid-gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
+        .gallery-item img { width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 1.5rem; display: block; }
         /* CTA */
-        .cta-section {
-            background: linear-gradient(105deg, #EBF2FA, #FFFFFF);
-            padding: 3rem;
-            border-radius: 2rem;
-            text-align: center;
-            margin: 3rem 0;
-        }
-
+        .cta-section { background: linear-gradient(105deg, #EBF2FA, #FFFFFF); padding: 3rem; border-radius: 2rem; text-align: center; margin: 3rem 0; }
         /* 页脚 */
-        .footer-section {
-            padding: 3rem 0 2rem;
-            border-top: 1px solid #E9EDF2;
-            margin-top: 2rem;
-            color: #6C7D97;
-        }
-        .footer-grid {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            gap: 2rem;
-        }
-        .footer-links {
-            display: flex;
-            gap: 2rem;
-            flex-wrap: wrap;
-        }
-        .footer-links a {
-            text-decoration: none;
-            color: #4B5E77;
-        }
-
-        @media (max-width: 680px) {
-            .philosophy-card {
-                flex: 0 0 100%;
-                max-width: 320px;
-            }
-        }
-        @media (max-width: 780px) {
-            .container {
-                padding: 0 1.25rem;
-            }
-            .hero-section h1 {
-                font-size: 2.2rem;
-            }
-            .nav-wrapper {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            .section-title {
-                font-size: 1.8rem;
-            }
-        }
+        .footer-section { padding: 3rem 0 2rem; border-top: 1px solid #E9EDF2; margin-top: 2rem; color: #6C7D97; }
+        .footer-grid { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2rem; }
+        .footer-links { display: flex; gap: 2rem; flex-wrap: wrap; }
+        .footer-links a { text-decoration: none; color: #4B5E77; }
+        @media (max-width: 680px) { .philosophy-card { flex: 0 0 100%; max-width: 320px; } }
+        @media (max-width: 780px) { .container { padding: 0 1.25rem; } .hero-section h1 { font-size: 2.2rem; } .nav-wrapper { flex-direction: column; align-items: flex-start; } .section-title { font-size: 1.8rem; } }
     </style>
 </head>
 <body>
@@ -371,7 +80,7 @@
             <a href="#philosophy" data-i18n-link-philosophy>设计哲学</a>
             <a href="#features" data-i18n-link-features>智能生态</a>
             <a href="#inspiration" data-i18n-link-inspiration>灵感社区</a>
-            <button id="langToggle" class="lang-btn">EN / 中文</button>
+            <button id="langToggle" class="lang-btn">English</button>
             <a href="#" class="btn-primary" data-i18n-btn-shop><i class="fas fa-shopping-bag"></i> 即刻探索</a>
         </div>
     </div>
@@ -523,113 +232,54 @@
 </footer>
 
 <script>
-    // 中英文对照表 (内容未变，仅按钮颜色已调亮)
     const translations = {
         zh: {
-            link_products: "产品",
-            link_philosophy: "设计哲学",
-            link_features: "智能生态",
-            link_inspiration: "灵感社区",
-            btn_shop: "即刻探索",
+            link_products: "产品", link_philosophy: "设计哲学", link_features: "智能生态", link_inspiration: "灵感社区", btn_shop: "即刻探索",
             badge: "✨ Smarter by Design · 设计更智能",
             hero_title: "重新定义光：<br>无限拼接，随心掌控",
             hero_desc: "ToLight 奇光板 — 模块化智能光艺系统，将空间变为可交互的光影画布。六边形、三角、线条矩阵，你的想象即是灯光的形态。",
-            cta1: "探索新品系列",
-            cta2: "欣赏灵感作品",
-            products_title: "奇光板 · 光影矩阵",
-            products_sub: "自由拼接，自适应任何空间氛围 — 电竞房、客厅、创意工作室，每一面墙皆是独特艺术品。",
-            prod1_title: "六边形交响 · 蜂巢光韵",
-            prod1_desc: "经典六角模块，渐变光晕与流畅色彩过渡，打造沉浸式背景光效。",
-            prod1_tag: "#Connect+ 技术",
-            prod2_title: "三角变奏 · 锋芒锐利",
-            prod2_desc: "锐角几何形态，支持多区域分区发光，为科技宅注入赛博气息。",
-            prod2_tag: "#音乐律动同步",
-            prod3_title: "异形共鸣 · 混搭艺术",
-            prod3_desc: "六角+三角+线条自由融合，突破传统拼接规则，释放无限创造欲。",
-            prod3_tag: "#全场景自定义",
-            prod4_title: "光影律动 · 随音而舞",
-            prod4_desc: "内置高灵敏拾音器，灯光实时跟随节拍，唤醒派对灵魂。",
-            prod4_tag: "#Rhythm音乐可视化",
-            philosophy_title: "我们的设计哲学",
-            philosophy_sub: "以人为中心，创造兼具美感与智慧的智能照明体验。",
-            phil1_title: "始于“为什么”",
-            phil1_desc: "每一次创新都源于解决真实需求，让光不再是配角，而是情绪交互的核心界面。",
-            phil2_title: "设计直观之物",
-            phil2_desc: "指尖触控、声控联动、App极简交互，无需复杂设置即可享受光之魔法。",
-            phil3_title: "以人为本",
-            phil3_desc: "聆听全球超过百万用户的反馈，让奇光板完美融入你的生活节奏。",
-            features_title: "超越照明 · 智能生态",
-            features_sub: "全面支持 Matter，与主流智能家居无缝协同，光随心动。",
-            feat1_title: "HomeKit & Matter 原生支持",
-            feat1_desc: "Siri、Google Assistant、Alexa 语音联动，轻松构建全屋智慧光场景。",
-            feat2_title: "屏幕镜像 · 沉浸同频",
-            feat2_desc: "ToLight 桌面级应用实时拾取屏幕色彩，观影/游戏时光影同步，氛围至臻。",
-            feat3_title: "触控 + 手势交互",
-            feat3_desc: "轻拍、划过奇光板即可切换场景/亮度，交互极具未来感。",
-            feat4_title: "1600万色 动态场景库",
-            feat4_desc: "海量预设场景、流动渐变色，更可自定义创造专属光影梦境。",
-            insp_title: "#ToLight 灵感社区",
-            insp_sub: "全世界创意玩家正在用奇光板定义新潮空间，你的下一个灵感也许就在其中。",
-            cta_title: "开启你的光艺之旅",
-            cta_text: "加入全球100万+智能光玩家，现在探索全系列奇光板。",
-            cta_btn: "选购灵感套装 →",
-            footer_copyright: "© 2025 ToLight 奇光万物 · 光创未来",
-            footer_about: "关于ToLight",
-            footer_support: "技术支持",
-            footer_privacy: "隐私条款"
+            cta1: "探索新品系列", cta2: "欣赏灵感作品",
+            products_title: "奇光板 · 光影矩阵", products_sub: "自由拼接，自适应任何空间氛围 — 电竞房、客厅、创意工作室，每一面墙皆是独特艺术品。",
+            prod1_title: "六边形交响 · 蜂巢光韵", prod1_desc: "经典六角模块，渐变光晕与流畅色彩过渡，打造沉浸式背景光效。", prod1_tag: "#Connect+ 技术",
+            prod2_title: "三角变奏 · 锋芒锐利", prod2_desc: "锐角几何形态，支持多区域分区发光，为科技宅注入赛博气息。", prod2_tag: "#音乐律动同步",
+            prod3_title: "异形共鸣 · 混搭艺术", prod3_desc: "六角+三角+线条自由融合，突破传统拼接规则，释放无限创造欲。", prod3_tag: "#全场景自定义",
+            prod4_title: "光影律动 · 随音而舞", prod4_desc: "内置高灵敏拾音器，灯光实时跟随节拍，唤醒派对灵魂。", prod4_tag: "#Rhythm音乐可视化",
+            philosophy_title: "我们的设计哲学", philosophy_sub: "以人为中心，创造兼具美感与智慧的智能照明体验。",
+            phil1_title: "始于“为什么”", phil1_desc: "每一次创新都源于解决真实需求，让光不再是配角，而是情绪交互的核心界面。",
+            phil2_title: "设计直观之物", phil2_desc: "指尖触控、声控联动、App极简交互，无需复杂设置即可享受光之魔法。",
+            phil3_title: "以人为本", phil3_desc: "聆听全球超过百万用户的反馈，让奇光板完美融入你的生活节奏。",
+            features_title: "超越照明 · 智能生态", features_sub: "全面支持 Matter，与主流智能家居无缝协同，光随心动。",
+            feat1_title: "HomeKit & Matter 原生支持", feat1_desc: "Siri、Google Assistant、Alexa 语音联动，轻松构建全屋智慧光场景。",
+            feat2_title: "屏幕镜像 · 沉浸同频", feat2_desc: "ToLight 桌面级应用实时拾取屏幕色彩，观影/游戏时光影同步，氛围至臻。",
+            feat3_title: "触控 + 手势交互", feat3_desc: "轻拍、划过奇光板即可切换场景/亮度，交互极具未来感。",
+            feat4_title: "1600万色 动态场景库", feat4_desc: "海量预设场景、流动渐变色，更可自定义创造专属光影梦境。",
+            insp_title: "#ToLight 灵感社区", insp_sub: "全世界创意玩家正在用奇光板定义新潮空间，你的下一个灵感也许就在其中。",
+            cta_title: "开启你的光艺之旅", cta_text: "加入全球100万+智能光玩家，现在探索全系列奇光板。", cta_btn: "选购灵感套装 →",
+            footer_copyright: "© 2025 ToLight 奇光万物 · 光创未来", footer_about: "关于ToLight", footer_support: "技术支持", footer_privacy: "隐私条款"
         },
         en: {
-            link_products: "Products",
-            link_philosophy: "Design Philosophy",
-            link_features: "Smart Ecosystem",
-            link_inspiration: "Inspiration",
-            btn_shop: "Shop Now",
+            link_products: "Products", link_philosophy: "Design Philosophy", link_features: "Smart Ecosystem", link_inspiration: "Inspiration", btn_shop: "Shop Now",
             badge: "✨ Smarter by Design",
             hero_title: "Redefine Light:<br>Infinite Combinations, Total Control",
             hero_desc: "ToLight — modular smart light art system, turning spaces into interactive canvases. Hexagons, triangles, lines — your imagination shapes the light.",
-            cta1: "Explore New Collection",
-            cta2: "View Gallery",
-            products_title: "Luminous Panels · Light Matrix",
-            products_sub: "Freeform arrangement adapts to any space — gaming rooms, living rooms, studios. Every wall becomes a unique artwork.",
-            prod1_title: "Hex Symphony · Hive Glow",
-            prod1_desc: "Classic hexagonal modules with smooth gradient glow for an immersive backdrop.",
-            prod1_tag: "#Connect+ Tech",
-            prod2_title: "Triangular Rhythm · Sharp Edge",
-            prod2_desc: "Angular geometry with zone lighting, injecting cyberpunk vibes into tech spaces.",
-            prod2_tag: "#Music Sync",
-            prod3_title: "Morph Mix · Free Art",
-            prod3_desc: "Hexagons, triangles, lines — break the rules and unleash infinite creativity.",
-            prod3_tag: "#Full Custom",
-            prod4_title: "Light Dance · Music Reactive",
-            prod4_desc: "Built-in high-sensitivity mic, lights pulse to the beat, igniting party spirits.",
-            prod4_tag: "#Rhythm Visualization",
-            philosophy_title: "Our Design Philosophy",
-            philosophy_sub: "Human-centered, blending beauty and intelligence for smart lighting experiences.",
-            phil1_title: "Start with 'Why'",
-            phil1_desc: "Every innovation solves real needs, making light a core interface for emotional interaction.",
-            phil2_title: "Design Intuitively",
-            phil2_desc: "Touch, voice, app — effortless control, enjoy the magic of light without complexity.",
-            phil3_title: "Human First",
-            phil3_desc: "Listening to millions of users worldwide, ToLight fits perfectly into your life rhythm.",
-            features_title: "Beyond Illumination · Smart Ecosystem",
-            features_sub: "Full Matter support, seamless integration with mainstream smart homes.",
-            feat1_title: "HomeKit & Matter Native Support",
-            feat1_desc: "Voice control with Siri, Google Assistant, Alexa — build whole-home smart lighting scenes.",
-            feat2_title: "Screen Mirroring · Immersive Sync",
-            feat2_desc: "Desktop app captures screen colors, synchronizing light with movies/games for ultimate ambiance.",
-            feat3_title: "Touch + Gesture Control",
-            feat3_desc: "Tap or swipe on panels to change scenes/brightness — a futuristic interaction.",
-            feat4_title: "16M Colors & Dynamic Scenes",
-            feat4_desc: "Massive preset scenes and gradients, plus custom creations for your dream lightscape.",
-            insp_title: "#ToLight Inspiration Community",
-            insp_sub: "Creative players worldwide are redefining spaces with ToLight. Your next inspiration is here.",
-            cta_title: "Start Your Light Journey",
-            cta_text: "Join over 1 million smart light enthusiasts. Explore the full collection now.",
-            cta_btn: "Shop Inspiration Kits →",
-            footer_copyright: "© 2025 ToLight · Light the Future",
-            footer_about: "About ToLight",
-            footer_support: "Support",
-            footer_privacy: "Privacy"
+            cta1: "Explore New Collection", cta2: "View Gallery",
+            products_title: "Luminous Panels · Light Matrix", products_sub: "Freeform arrangement adapts to any space — gaming rooms, living rooms, studios. Every wall becomes a unique artwork.",
+            prod1_title: "Hex Symphony · Hive Glow", prod1_desc: "Classic hexagonal modules with smooth gradient glow for an immersive backdrop.", prod1_tag: "#Connect+ Tech",
+            prod2_title: "Triangular Rhythm · Sharp Edge", prod2_desc: "Angular geometry with zone lighting, injecting cyberpunk vibes into tech spaces.", prod2_tag: "#Music Sync",
+            prod3_title: "Morph Mix · Free Art", prod3_desc: "Hexagons, triangles, lines — break the rules and unleash infinite creativity.", prod3_tag: "#Full Custom",
+            prod4_title: "Light Dance · Music Reactive", prod4_desc: "Built-in high-sensitivity mic, lights pulse to the beat, igniting party spirits.", prod4_tag: "#Rhythm Visualization",
+            philosophy_title: "Our Design Philosophy", philosophy_sub: "Human-centered, blending beauty and intelligence for smart lighting experiences.",
+            phil1_title: "Start with 'Why'", phil1_desc: "Every innovation solves real needs, making light a core interface for emotional interaction.",
+            phil2_title: "Design Intuitively", phil2_desc: "Touch, voice, app — effortless control, enjoy the magic of light without complexity.",
+            phil3_title: "Human First", phil3_desc: "Listening to millions of users worldwide, ToLight fits perfectly into your life rhythm.",
+            features_title: "Beyond Illumination · Smart Ecosystem", features_sub: "Full Matter support, seamless integration with mainstream smart homes.",
+            feat1_title: "HomeKit & Matter Native Support", feat1_desc: "Voice control with Siri, Google Assistant, Alexa — build whole-home smart lighting scenes.",
+            feat2_title: "Screen Mirroring · Immersive Sync", feat2_desc: "Desktop app captures screen colors, synchronizing light with movies/games for ultimate ambiance.",
+            feat3_title: "Touch + Gesture Control", feat3_desc: "Tap or swipe on panels to change scenes/brightness — a futuristic interaction.",
+            feat4_title: "16M Colors & Dynamic Scenes", feat4_desc: "Massive preset scenes and gradients, plus custom creations for your dream lightscape.",
+            insp_title: "#ToLight Inspiration Community", insp_sub: "Creative players worldwide are redefining spaces with ToLight. Your next inspiration is here.",
+            cta_title: "Start Your Light Journey", cta_text: "Join over 1 million smart light enthusiasts. Explore the full collection now.", cta_btn: "Shop Inspiration Kits →",
+            footer_copyright: "© 2025 ToLight · Light the Future", footer_about: "About ToLight", footer_support: "Support", footer_privacy: "Privacy"
         }
     };
 
@@ -690,9 +340,9 @@
         document.querySelector('[data-i18n-footer-support]').innerText = t.footer_support;
         document.querySelector('[data-i18n-footer-privacy]').innerText = t.footer_privacy;
 
+        // 修正按钮文本：中文时显示“English”，英文时显示“中文”
         const langBtn = document.getElementById('langToggle');
-        if (lang === 'zh') langBtn.innerText = '中文';
-        else langBtn.innerText = 'English';
+        langBtn.innerText = (lang === 'zh') ? 'English' : '中文';
     }
 
     const langToggle = document.getElementById('langToggle');
