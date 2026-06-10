@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToLight | 屏幕镜像</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>/* same as feature1 */</style>
+</head>
+<body>
+<div class="container">
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+        <a href="index.html" class="back-link">← <span data-i18n="back">返回首页</span></a>
+        <button id="langToggle" class="lang-btn">English</button>
+    </div>
+    <div class="icon"><i class="fas fa-desktop"></i></div>
+    <h1 data-i18n="title">屏幕镜像 · 沉浸同频</h1>
+    <p data-i18n="p1">ToLight 桌面应用支持实时抓取屏幕色彩，将电影、游戏、音乐视频的颜色扩展到墙面奇光板上。观影时灯光随画面氛围变化，游戏时增强沉浸感，音乐可视化让旋律具象化。</p>
+    <h3 style="margin-top:1.5rem;" data-i18n="subtitle">适用场景</h3>
+    <ul style="margin-left:1.5rem;">
+        <li data-i18n="scene1">电影之夜：灯光延伸画面主色调，营造影院氛围</li>
+        <li data-i18n="scene2">电竞游戏：枪火、魔法技能光效同步，增强代入感</li>
+        <li data-i18n="scene3">音乐可视化：Spotify/Apple Music 歌词光谱</li>
+    </ul>
+    <div class="footer"><p>© 2025 ToLight · <span data-i18n="footer_text">智能生态</span></p></div>
+</div>
+<script>
+    const translations = {
+        zh: {
+            back: "返回首页", title: "屏幕镜像 · 沉浸同频",
+            p1: "ToLight 桌面应用支持实时抓取屏幕色彩，将电影、游戏、音乐视频的颜色扩展到墙面奇光板上。观影时灯光随画面氛围变化，游戏时增强沉浸感，音乐可视化让旋律具象化。",
+            subtitle: "适用场景", scene1: "电影之夜：灯光延伸画面主色调，营造影院氛围", scene2: "电竞游戏：枪火、魔法技能光效同步，增强代入感", scene3: "音乐可视化：Spotify/Apple Music 歌词光谱",
+            footer_text: "智能生态"
+        },
+        en: {
+            back: "Back to Home", title: "Screen Mirroring · Immersive Sync",
+            p1: "The ToLight desktop app captures screen colors in real time, extending movie, game, and music video colors to your wall panels. Lights change with the scene during movies, enhance immersion in games, and visualize music.",
+            subtitle: "Use Cases", scene1: "Movie Night: Extend the main color tone of the screen for a cinematic atmosphere", scene2: "Gaming: Sync gunfire and spell effects for deeper immersion", scene3: "Music Visualization: Spotify/Apple Music spectral display",
+            footer_text: "Smart Ecosystem"
+        }
+    };
+    let currentLang = 'zh';
+    function setLanguage(lang) {
+        currentLang = lang;
+        const t = translations[lang];
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+            const key = el.getAttribute('data-i18n');
+            if (t[key]) el.innerText = t[key];
+        });
+        document.getElementById('langToggle').innerText = (lang === 'zh') ? 'English' : '中文';
+    }
+    document.getElementById('langToggle').addEventListener('click', () => {
+        if (currentLang === 'zh') setLanguage('en');
+        else setLanguage('zh');
+    });
+    setLanguage('zh');
+</script>
+</body>
+</html>

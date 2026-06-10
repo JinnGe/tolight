@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToLight | HomeKit & Matter</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: #FFFFFF; color: #1E2A3E; line-height: 1.6; }
+        .container { max-width: 800px; margin: 0 auto; padding: 3rem 2rem; }
+        .back-link { display: inline-block; margin-bottom: 2rem; color: #2C7BE5; text-decoration: none; font-weight: 500; }
+        .lang-btn { background: none; border: 1px solid #CBD5E1; padding: 0.3rem 1rem; border-radius: 40px; cursor: pointer; font-family: inherit; font-size: 0.8rem; margin-left: 1rem; }
+        h1 { font-size: 2rem; margin-bottom: 1rem; }
+        .icon { font-size: 3rem; color: #2C6E9E; margin-bottom: 1rem; }
+        .footer { margin-top: 4rem; padding-top: 2rem; border-top: 1px solid #ECF0F5; text-align: center; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+        <a href="index.html" class="back-link">← <span data-i18n="back">返回首页</span></a>
+        <button id="langToggle" class="lang-btn">English</button>
+    </div>
+    <div class="icon"><i class="fab fa-apple"></i></div>
+    <h1 data-i18n="title">HomeKit & Matter 原生支持</h1>
+    <p data-i18n="p1">ToLight 奇光板已通过 Matter 认证，完美接入 Apple Home、Google Home、Amazon Alexa 及 Samsung SmartThings。无需桥接器，直接扫码配对，与其他智能设备联动，打造全屋智慧光场景。</p>
+    <h3 style="margin-top:1.5rem;" data-i18n="subtitle">支持的语音指令示例</h3>
+    <ul style="margin-left:1.5rem;">
+        <li data-i18n="cmd1">“Hey Siri，把客厅灯调成蓝色”</li>
+        <li data-i18n="cmd2">“Alexa，开启派对模式”</li>
+        <li data-i18n="cmd3">“Hey Google，观影时同步灯光”</li>
+    </ul>
+    <div class="footer"><p>© 2025 ToLight · <span data-i18n="footer_text">智能生态</span></p></div>
+</div>
+<script>
+    const translations = {
+        zh: {
+            back: "返回首页", title: "HomeKit & Matter 原生支持",
+            p1: "ToLight 奇光板已通过 Matter 认证，完美接入 Apple Home、Google Home、Amazon Alexa 及 Samsung SmartThings。无需桥接器，直接扫码配对，与其他智能设备联动，打造全屋智慧光场景。",
+            subtitle: "支持的语音指令示例", cmd1: "“Hey Siri，把客厅灯调成蓝色”", cmd2: "“Alexa，开启派对模式”", cmd3: "“Hey Google，观影时同步灯光”",
+            footer_text: "智能生态"
+        },
+        en: {
+            back: "Back to Home", title: "HomeKit & Matter Native Support",
+            p1: "ToLight panels are Matter-certified, seamlessly integrating with Apple Home, Google Home, Amazon Alexa, and Samsung SmartThings. No bridge needed — just scan and pair, then sync with other smart devices for whole-home smart lighting scenes.",
+            subtitle: "Supported Voice Commands", cmd1: "“Hey Siri, set living room lights to blue”", cmd2: "“Alexa, turn on party mode”", cmd3: "“Hey Google, sync lights for movie time”",
+            footer_text: "Smart Ecosystem"
+        }
+    };
+    let currentLang = 'zh';
+    function setLanguage(lang) {
+        currentLang = lang;
+        const t = translations[lang];
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+            const key = el.getAttribute('data-i18n');
+            if (t[key]) el.innerText = t[key];
+        });
+        document.getElementById('langToggle').innerText = (lang === 'zh') ? 'English' : '中文';
+    }
+    document.getElementById('langToggle').addEventListener('click', () => {
+        if (currentLang === 'zh') setLanguage('en');
+        else setLanguage('zh');
+    });
+    setLanguage('zh');
+</script>
+</body>
+</html>

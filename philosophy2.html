@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToLight | 设计哲学：设计直观之物</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>/* same as philosophy1 */</style>
+</head>
+<body>
+<div class="container">
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+        <a href="index.html" class="back-link">← <span data-i18n="back">返回首页</span></a>
+        <button id="langToggle" class="lang-btn">English</button>
+    </div>
+    <div class="icon"><i class="fas fa-hand-peace"></i></div>
+    <h1 data-i18n="title">设计直观之物</h1>
+    <p data-i18n="p1">科技不应令人感到复杂。ToLight 坚持“零学习成本”的交互原则：触摸即控、语音即达、App 化繁为简。无论老人还是孩子，都能轻松享受光影魔法。</p>
+    <div style="margin-top:2rem;"><h3 data-i18n="subtitle">交互案例</h3><p data-i18n="p2">轻拍奇光板切换场景；手指划过调节亮度；说出“打开派对模式”即可激活音乐律动。无需说明书，直觉驱动。同时提供深度自定义功能，满足高级玩家的创意需求。</p></div>
+    <div class="footer"><p>© 2025 ToLight · <span data-i18n="footer_text">光创未来</span></p></div>
+</div>
+<script>
+    const translations = {
+        zh: {
+            back: "返回首页", title: "设计直观之物",
+            p1: "科技不应令人感到复杂。ToLight 坚持“零学习成本”的交互原则：触摸即控、语音即达、App 化繁为简。无论老人还是孩子，都能轻松享受光影魔法。",
+            subtitle: "交互案例", p2: "轻拍奇光板切换场景；手指划过调节亮度；说出“打开派对模式”即可激活音乐律动。无需说明书，直觉驱动。同时提供深度自定义功能，满足高级玩家的创意需求。",
+            footer_text: "光创未来"
+        },
+        en: {
+            back: "Back to Home", title: "Design Intuitively",
+            p1: "Technology shouldn't be complicated. ToLight adheres to 'zero learning curve' interaction: touch to control, voice commands, and a simplified app. Both the elderly and children can enjoy the magic of light effortlessly.",
+            subtitle: "Interaction Examples", p2: "Tap a panel to switch scenes, slide your finger to adjust brightness, say 'turn on party mode' to activate music sync. No manual needed, purely intuitive. We also offer deep customization for advanced users.",
+            footer_text: "Light the Future"
+        }
+    };
+    let currentLang = 'zh';
+    function setLanguage(lang) {
+        currentLang = lang;
+        const t = translations[lang];
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+            const key = el.getAttribute('data-i18n');
+            if (t[key]) el.innerText = t[key];
+        });
+        document.getElementById('langToggle').innerText = (lang === 'zh') ? 'English' : '中文';
+    }
+    document.getElementById('langToggle').addEventListener('click', () => {
+        if (currentLang === 'zh') setLanguage('en');
+        else setLanguage('zh');
+    });
+    setLanguage('zh');
+</script>
+</body>
+</html>
