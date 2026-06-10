@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToLight | 奇光板 · 智能光艺美学</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: #FFFFFF; color: #1E2A3E; line-height: 1.5; scroll-behavior: smooth; }
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 2rem; }
+        .navbar { position: sticky; top: 0; background: rgba(255,255,255,0.96); backdrop-filter: blur(12px); z-index: 100; border-bottom: 1px solid #ECF0F5; padding: 1.2rem 0; }
+        .nav-wrapper { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+        .logo { font-family: 'Poppins', sans-serif; font-size: 1.8rem; font-weight: 700; background: linear-gradient(135deg, #1E2A3E, #2C5A8C); background-clip: text; -webkit-background-clip: text; color: transparent; }
+        .nav-links { display: flex; gap: 2rem; align-items: center; flex-wrap: wrap; }
+        .nav-links a { text-decoration: none; font-weight: 500; font-size: 0.95rem; color: #2C3E50; transition: 0.2s; }
+        .nav-links a:hover { color: #2C6E9E; }
+        .lang-btn { background: none; border: none; font-weight: 500; font-size: 0.95rem; cursor: pointer; padding: 0.5rem 0.8rem; border-radius: 40px; font-family: inherit; color: #2C3E50; }
+        .btn-outline { border: 1px solid #CBD5E1; padding: 0.5rem 1.2rem; border-radius: 40px; background: transparent; font-weight: 500; transition: 0.2s; display: inline-block; text-decoration: none; color: #2C3E50; }
+        .btn-outline:hover { background: #1E2A3E; border-color: #1E2A3E; color: white; }
+        .btn-primary { background: #2C7BE5; color: white; padding: 0.5rem 1.2rem; border-radius: 40px; font-weight: 500; border: none; transition: 0.2s; box-shadow: 0 2px 6px rgba(44,123,229,0.2); display: inline-block; text-decoration: none; }
+        .btn-primary:hover { background: #1E5BBF; transform: translateY(-2px); box-shadow: 0 6px 12px rgba(44,123,229,0.3); }
+        .btn-large { padding: 0.9rem 2rem; font-size: 1rem; }
+        .hero-section { padding: 5rem 0 4rem; text-align: center; }
+        .hero-badge { display: inline-block; background: #EFF4FB; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.8rem; font-weight: 500; color: #2C6E9E; margin-bottom: 1.5rem; }
+        .hero-section h1 { font-size: 3.2rem; font-weight: 700; font-family: 'Poppins', sans-serif; background: linear-gradient(145deg, #1E2A3E, #2C5A8C); background-clip: text; -webkit-background-clip: text; color: transparent; max-width: 800px; margin: 0 auto 1rem; }
+        .hero-section p { font-size: 1.2rem; color: #4A5B6E; max-width: 640px; margin: 0 auto 2rem; }
+        .cta-group { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+        .section-title { font-size: 2rem; font-weight: 600; font-family: 'Poppins', sans-serif; text-align: center; margin-bottom: 0.8rem; }
+        .section-sub { text-align: center; color: #5A6F8C; max-width: 680px; margin: 0 auto 3rem; }
+        .products-section { padding: 2rem 0 4rem; }
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 2rem; }
+        .product-card-link { text-decoration: none; display: block; }
+        .product-card { background: white; border-radius: 2rem; overflow: hidden; box-shadow: 0 12px 28px rgba(0,0,0,0.03), 0 0 0 1px #ECF0F5; transition: 0.3s; }
+        .product-card-link:hover .product-card { transform: translateY(-6px); box-shadow: 0 24px 40px rgba(0,0,0,0.08), 0 0 0 1px #DBE4ED; }
+        .product-img img { width: 100%; aspect-ratio: 1; object-fit: cover; display: block; }
+        .product-info { padding: 1.5rem; }
+        .product-title { font-size: 1.4rem; font-weight: 600; margin-bottom: 0.4rem; color: #1E2A3E; }
+        .product-desc { color: #5F728B; font-size: 0.9rem; margin-bottom: 1rem; }
+        .product-tag { font-size: 0.7rem; font-weight: 500; background: #ECF3FA; display: inline-block; padding: 0.2rem 0.7rem; border-radius: 30px; color: #2C5A8C; }
+        .philosophy-section { background: #F9FBFE; padding: 5rem 0; margin: 1rem 0 2rem 0; border-radius: 3rem; }
+        .philosophy-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 2.5rem; }
+        .philosophy-card-link { text-decoration: none; display: block; flex: 0 0 280px; transition: 0.2s; }
+        .philosophy-card-link:hover { transform: translateY(-5px); }
+        .philosophy-card { text-align: center; padding: 1rem; background: white; border-radius: 1.5rem; box-shadow: 0 8px 20px rgba(0,0,0,0.02), 0 0 0 1px #ECF0F5; height: 100%; }
+        .philosophy-icon { font-size: 2.8rem; color: #2C6E9E; margin-bottom: 1rem; }
+        .philosophy-card h3 { font-weight: 600; margin-bottom: 0.75rem; font-size: 1.3rem; color: #1E2A3E; }
+        .philosophy-card p { color: #4B5E77; font-size: 0.9rem; }
+        .features-section { padding: 3rem 0 5rem; }
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
+        .feature-link { text-decoration: none; display: block; }
+        .feature-item { background: white; border-radius: 1.8rem; padding: 2rem; box-shadow: 0 6px 14px rgba(0,0,0,0.02), 0 0 0 1px #ECF0F5; transition: 0.3s; }
+        .feature-link:hover .feature-item { transform: translateY(-5px); box-shadow: 0 16px 28px rgba(0,0,0,0.08), 0 0 0 1px #DBE4ED; }
+        .feature-icon { font-size: 2rem; background: #EFF4FB; width: 56px; height: 56px; display: flex; align-items: center; justify-content: center; border-radius: 1.2rem; margin-bottom: 1.2rem; color: #2C5A8C; }
+        .feature-item h3 { font-weight: 600; margin-bottom: 0.5rem; font-size: 1.2rem; color: #1E2A3E; }
+        .feature-item p { color: #5F728B; font-size: 0.9rem; }
+        .inspiration-section { background: #F2F6FC; border-radius: 2.5rem; padding: 3rem 2rem; margin: 2rem 0; }
+        .grid-gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
+        .gallery-link { text-decoration: none; display: block; }
+        .gallery-item { border-radius: 1.5rem; overflow: hidden; background: #fff; transition: 0.2s; }
+        .gallery-link:hover .gallery-item { transform: scale(1.02); box-shadow: 0 12px 24px rgba(0,0,0,0.1); }
+        .gallery-item img { width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block; }
+        .cta-section { background: linear-gradient(105deg, #EBF2FA, #FFFFFF); padding: 3rem; border-radius: 2rem; text-align: center; margin: 3rem 0; }
+        .footer-section { padding: 3rem 0 2rem; border-top: 1px solid #E9EDF2; margin-top: 2rem; color: #6C7D97; }
+        .footer-grid { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2rem; }
+        .footer-links { display: flex; gap: 2rem; flex-wrap: wrap; }
+        .footer-links a { text-decoration: none; color: #4B5E77; }
+        @media (max-width: 680px) { .philosophy-card-link { flex: 0 0 100%; max-width: 320px; } }
+        @media (max-width: 780px) { .container { padding: 0 1.25rem; } .hero-section h1 { font-size: 2.2rem; } .nav-wrapper { flex-direction: column; align-items: flex-start; } .section-title { font-size: 1.8rem; } }
+    </style>
+</head>
+<body>
+<nav class="navbar"><div class="container nav-wrapper"><div class="logo">✧ ToLight ✧</div><div class="nav-links"><a href="index.html">产品</a><a href="#philosophy">设计哲学</a><a href="#features">智能生态</a><a href="#inspiration">灵感社区</a><button id="langToggle" class="lang-btn">English</button><a href="#" class="btn-primary">即刻探索</a></div></div></nav>
+<main>
+    <section class="hero-section"><div class="container"><div class="hero-badge">✨ Smarter by Design · 设计更智能</div><h1>重新定义光：<br>无限拼接，随心掌控</h1><p>ToLight 奇光板 — 模块化智能光艺系统，将空间变为可交互的光影画布。</p><div class="cta-group"><a href="#" class="btn-primary btn-large">探索新品系列</a><a href="#" class="btn-outline btn-large">欣赏灵感作品</a></div></div></section>
+    <section class="products-section" id="products"><div class="container"><div class="section-title">奇光板 · 光影矩阵</div><div class="section-sub">自由拼接，自适应任何空间氛围。</div><div class="product-grid">
+        <a href="product1.html" class="product-card-link"><div class="product-card"><div class="product-img"><img src="https://images.pexels.com/photos/2765142/pexels-photo-2765142.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop" alt="Hexagon"></div><div class="product-info"><div class="product-title">六边形交响 · 蜂巢光韵</div><div class="product-desc">经典六角模块，渐变光晕与流畅色彩过渡。</div><span class="product-tag">#Connect+ 技术</span></div></div></a>
+        <a href="product2.html" class="product-card-link"><div class="product-card"><div class="product-img"><img src="https://images.pexels.com/photos/4108683/pexels-photo-4108683.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop" alt="Triangle"></div><div class="product-info"><div class="product-title">三角变奏 · 锋芒锐利</div><div class="product-desc">锐角几何形态，多区域分区发光。</div><span class="product-tag">#音乐律动同步</span></div></div></a>
+        <a href="product3.html" class="product-card-link"><div class="product-card"><div class="product-img"><img src="https://images.pexels.com/photos/8566482/pexels-photo-8566482.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop" alt="Mixed"></div><div class="product-info"><div class="product-title">异形共鸣 · 混搭艺术</div><div class="product-desc">六角+三角+线条自由融合。</div><span class="product-tag">#全场景自定义</span></div></div></a>
+        <a href="product4.html" class="product-card-link"><div class="product-card"><div class="product-img"><img src="https://images.pexels.com/photos/1579396/pexels-photo-1579396.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop" alt="Music"></div><div class="product-info"><div class="product-title">光影律动 · 随音而舞</div><div class="product-desc">灯光实时跟随节拍，唤醒派对灵魂。</div><span class="product-tag">#Rhythm音乐可视化</span></div></div></a>
+    </div></div></section>
+    <section class="philosophy-section" id="philosophy"><div class="container"><div class="section-title">我们的设计哲学</div><div class="section-sub">以人为中心，创造兼具美感与智慧的智能照明体验。</div><div class="philosophy-grid">
+        <a href="philosophy1.html" class="philosophy-card-link"><div class="philosophy-card"><div class="philosophy-icon"><i class="fas fa-lightbulb"></i></div><h3>始于“为什么”</h3><p>每一次创新都源于解决真实需求，让光不再是配角。</p></div></a>
+        <a href="philosophy2.html" class="philosophy-card-link"><div class="philosophy-card"><div class="philosophy-icon"><i class="fas fa-hand-peace"></i></div><h3>设计直观之物</h3><p>指尖触控、声控联动，无需复杂设置即可享受光之魔法。</p></div></a>
+        <a href="philosophy3.html" class="philosophy-card-link"><div class="philosophy-card"><div class="philosophy-icon"><i class="fas fa-users"></i></div><h3>以人为本</h3><p>聆听全球超过百万用户的反馈，让奇光板融入你的生活节奏。</p></div></a>
+    </div></div></section>
+    <section class="features-section" id="features"><div class="container"><div class="section-title">超越照明 · 智能生态</div><div class="section-sub">全面支持 Matter，与主流智能家居无缝协同。</div><div class="features-grid">
+        <a href="feature1.html" class="feature-link"><div class="feature-item"><div class="feature-icon"><i class="fab fa-apple"></i></div><h3>HomeKit & Matter 原生支持</h3><p>Siri、Google Assistant、Alexa 语音联动。</p></div></a>
+        <a href="feature2.html" class="feature-link"><div class="feature-item"><div class="feature-icon"><i class="fas fa-desktop"></i></div><h3>屏幕镜像 · 沉浸同频</h3><p>实时拾取屏幕色彩，观影游戏光影同步。</p></div></a>
+        <a href="feature3.html" class="feature-link"><div class="feature-item"><div class="feature-icon"><i class="fas fa-hand-back-fist"></i></div><h3>触控 + 手势交互</h3><p>轻拍、划过奇光板即可切换场景。</p></div></a>
+        <a href="feature4.html" class="feature-link"><div class="feature-item"><div class="feature-icon"><i class="fas fa-palette"></i></div><h3>1600万色 动态场景库</h3><p>海量预设场景，自定义专属光影梦境。</p></div></a>
+    </div></div></section>
+    <section class="inspiration-section" id="inspiration"><div class="container"><div class="section-title">#ToLight 灵感社区</div><div class="section-sub">全世界创意玩家正在用奇光板定义新潮空间。</div><div class="grid-gallery">
+        <a href="inspire1.html" class="gallery-link"><div class="gallery-item"><img src="https://images.pexels.com/photos/1579396/pexels-photo-1579396.jpeg?auto=compress&cs=tinysrgb&w=300&h=200&fit=crop" alt="灵感"></div></a>
+        <a href="inspire2.html" class="gallery-link"><div class="gallery-item"><img src="https://images.pexels.com/photos/4959566/pexels-photo-4959566.jpeg?auto=compress&cs=tinysrgb&w=300&h=200&fit=crop" alt="灵感"></div></a>
+        <a href="inspire3.html" class="gallery-link"><div class="gallery-item"><img src="https://images.pexels.com/photos/8566482/pexels-photo-8566482.jpeg?auto=compress&cs=tinysrgb&w=300&h=200&fit=crop" alt="灵感"></div></a>
+        <a href="inspire4.html" class="gallery-link"><div class="gallery-item"><img src="https://images.pexels.com/photos/2765142/pexels-photo-2765142.jpeg?auto=compress&cs=tinysrgb&w=300&h=200&fit=crop" alt="灵感"></div></a>
+    </div></div></section>
+    <section class="cta-section"><div class="container"><h2 style="font-size:1.8rem; margin-bottom:0.8rem;">开启你的光艺之旅</h2><p style="margin-bottom:1.5rem;">加入全球100万+智能光玩家，现在探索全系列奇光板。</p><a href="#" class="btn-primary btn-large">选购灵感套装 →</a></div></section>
+</main>
+<footer class="footer-section"><div class="container footer-grid"><div class="footer-copyright"><div class="logo" style="font-size:1.5rem;">ToLight</div><p>© 2025 ToLight 奇光万物 · 光创未来</p></div><div class="footer-links"><a href="#">关于ToLight</a><a href="#">技术支持</a><a href="#">隐私条款</a><a href="#"><i class="fab fa-instagram"></i> Instagram</a><a href="#"><i class="fab fa-tiktok"></i> TikTok</a></div></div></footer>
+<script>
+    document.getElementById('langToggle').addEventListener('click', function() {
+        // 语言切换简化：仅演示按钮文字切换，实际多语言需维护，此处保持与之前相同逻辑可省略
+        this.innerText = this.innerText === 'English' ? '中文' : 'English';
+        // 实际项目中需实现完整文本切换，为保持简洁，此处不做内容切换（详情页同理）
+    });
+    // 平滑滚动（仅锚点）
+    document.querySelectorAll('.nav-links a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const targetId = this.getAttribute('href');
+            if (targetId && targetId !== "#") {
+                const target = document.querySelector(targetId);
+                if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
+            }
+        });
+    });
+</script>
+</body>
+</html>
