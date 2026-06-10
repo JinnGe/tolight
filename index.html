@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ToLight | 奇光板 · 智能光艺美学</title>
+    <title>ToLight | 奇光板 · 自由光形，随心所寓</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
@@ -23,9 +23,8 @@
         .btn-primary:hover { background: #1E5BBF; transform: translateY(-2px); box-shadow: 0 6px 12px rgba(44,123,229,0.3); }
         .btn-large { padding: 0.9rem 2rem; font-size: 1rem; }
         .hero-section { padding: 5rem 0 4rem; text-align: center; }
-        .hero-badge { display: inline-block; background: #EFF4FB; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.8rem; font-weight: 500; color: #2C6E9E; margin-bottom: 1.5rem; }
         .hero-section h1 { font-size: 3.2rem; font-weight: 700; font-family: 'Poppins', sans-serif; background: linear-gradient(145deg, #1E2A3E, #2C5A8C); background-clip: text; -webkit-background-clip: text; color: transparent; max-width: 800px; margin: 0 auto 1rem; }
-        .hero-section p { font-size: 1.2rem; color: #4A5B6E; max-width: 640px; margin: 0 auto 2rem; }
+        .hero-sub { font-size: 1.2rem; color: #4A5B6E; max-width: 640px; margin: 0 auto 2rem; }
         .cta-group { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
         .section-title { font-size: 2rem; font-weight: 600; font-family: 'Poppins', sans-serif; text-align: center; margin-bottom: 0.8rem; }
         .section-sub { text-align: center; color: #5A6F8C; max-width: 680px; margin: 0 auto 3rem; }
@@ -73,7 +72,7 @@
 <body>
 <nav class="navbar"><div class="container nav-wrapper"><div class="logo">✧ ToLight ✧</div><div class="nav-links"><a href="index.html" data-i18n="nav_products">产品</a><a href="#philosophy" data-i18n="nav_philosophy">设计哲学</a><a href="#features" data-i18n="nav_features">智能生态</a><a href="#inspiration" data-i18n="nav_inspiration">灵感社区</a><button id="langToggle" class="lang-btn">English</button><a href="#" class="btn-primary" data-i18n="nav_shop"><i class="fas fa-shopping-bag"></i> 即刻探索</a></div></div></nav>
 <main>
-    <section class="hero-section"><div class="container"><div class="hero-badge" data-i18n="hero_badge">✨ Smarter by Design · 设计更智能</div><h1 data-i18n="hero_title">重新定义光：<br>无限拼接，随心掌控</h1><p data-i18n="hero_desc">ToLight 奇光板 — 模块化智能光艺系统，将空间变为可交互的光影画布。</p><div class="cta-group"><a href="#products" class="btn-primary btn-large" data-i18n="cta_explore"><i class="fas fa-magic"></i> 探索新品系列</a><a href="#inspiration" class="btn-outline btn-large" data-i18n="cta_inspire"><i class="fas fa-video"></i> 欣赏灵感作品</a></div></div></section>
+    <section class="hero-section"><div class="container"><h1 data-i18n="hero_title">自由光形，随心所寓</h1><div class="hero-sub" data-i18n="hero_sub">每一面墙都是画布</div><div class="cta-group"><a href="#products" class="btn-primary btn-large" data-i18n="cta_explore"><i class="fas fa-magic"></i> 探索新品系列</a><a href="#inspiration" class="btn-outline btn-large" data-i18n="cta_inspire"><i class="fas fa-video"></i> 欣赏灵感作品</a></div></div></section>
     <section class="products-section" id="products"><div class="container"><div class="section-title" data-i18n="products_title">奇光板 · 光影矩阵</div><div class="section-sub" data-i18n="products_sub">自由拼接，自适应任何空间氛围。</div><div class="product-grid">
         <a href="product1.html" class="product-card-link"><div class="product-card"><div class="product-img"><img src="https://images.pexels.com/photos/2765142/pexels-photo-2765142.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop" alt="Hexagon"></div><div class="product-info"><div class="product-title" data-i18n="prod1_title">六边形交响 · 蜂巢光韵</div><div class="product-desc" data-i18n="prod1_desc">经典六角模块，渐变光晕与流畅色彩过渡。</div><span class="product-tag" data-i18n="prod1_tag">#Connect+ 技术</span></div></div></a>
         <a href="product2.html" class="product-card-link"><div class="product-card"><div class="product-img"><img src="https://images.pexels.com/photos/4108683/pexels-photo-4108683.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop" alt="Triangle"></div><div class="product-info"><div class="product-title" data-i18n="prod2_title">三角变奏 · 锋芒锐利</div><div class="product-desc" data-i18n="prod2_desc">锐角几何形态，多区域分区发光。</div><span class="product-tag" data-i18n="prod2_tag">#音乐律动同步</span></div></div></a>
@@ -101,11 +100,10 @@
 </main>
 <footer class="footer-section"><div class="container footer-grid"><div class="footer-copyright"><div class="logo" style="font-size:1.5rem;">ToLight</div><p data-i18n="footer_copyright">© 2025 ToLight 奇光万物 · 光创未来</p></div><div class="footer-links"><a href="#" data-i18n="footer_about">关于ToLight</a><a href="#" data-i18n="footer_support">技术支持</a><a href="#" data-i18n="footer_privacy">隐私条款</a><a href="#"><i class="fab fa-instagram"></i> Instagram</a><a href="#"><i class="fab fa-tiktok"></i> TikTok</a></div></div></footer>
 <script>
-    // 中英文语言包
     const translations = {
         zh: {
             nav_products: "产品", nav_philosophy: "设计哲学", nav_features: "智能生态", nav_inspiration: "灵感社区", nav_shop: "即刻探索",
-            hero_badge: "✨ Smarter by Design · 设计更智能", hero_title: "重新定义光：<br>无限拼接，随心掌控", hero_desc: "ToLight 奇光板 — 模块化智能光艺系统，将空间变为可交互的光影画布。",
+            hero_title: "自由光形，随心所寓", hero_sub: "每一面墙都是画布",
             cta_explore: "探索新品系列", cta_inspire: "欣赏灵感作品",
             products_title: "奇光板 · 光影矩阵", products_sub: "自由拼接，自适应任何空间氛围。",
             prod1_title: "六边形交响 · 蜂巢光韵", prod1_desc: "经典六角模块，渐变光晕与流畅色彩过渡。", prod1_tag: "#Connect+ 技术",
@@ -127,7 +125,7 @@
         },
         en: {
             nav_products: "Products", nav_philosophy: "Design Philosophy", nav_features: "Smart Ecosystem", nav_inspiration: "Inspiration", nav_shop: "Shop Now",
-            hero_badge: "✨ Smarter by Design", hero_title: "Redefine Light:<br>Infinite Combinations, Total Control", hero_desc: "ToLight — modular smart light art system, turning spaces into interactive canvases.",
+            hero_title: "Shape Your Light, Shape Your Space", hero_sub: "Every Wall is a Canvas",
             cta_explore: "Explore New Collection", cta_inspire: "View Gallery",
             products_title: "Luminous Panels · Light Matrix", products_sub: "Freeform arrangement adapts to any space.",
             prod1_title: "Hex Symphony · Hive Glow", prod1_desc: "Classic hexagonal modules with smooth gradient glow.", prod1_tag: "#Connect+ Tech",
@@ -148,44 +146,31 @@
             footer_copyright: "© 2025 ToLight · Light the Future", footer_about: "About ToLight", footer_support: "Support", footer_privacy: "Privacy"
         }
     };
-
     let currentLang = 'zh';
-
     function setLanguage(lang) {
         currentLang = lang;
         const t = translations[lang];
-        // 更新所有带有 data-i18n 属性的元素
         document.querySelectorAll('[data-i18n]').forEach(el => {
             const key = el.getAttribute('data-i18n');
             if (t[key] !== undefined) {
-                if (el.tagName === 'H1' && key === 'hero_title') {
-                    el.innerHTML = t[key];
-                } else {
-                    el.innerText = t[key];
-                }
+                if (el.tagName === 'H1' && key === 'hero_title') el.innerHTML = t[key];
+                else if (el.classList && el.classList.contains('hero-sub') && key === 'hero_sub') el.innerHTML = t[key];
+                else el.innerText = t[key];
             }
         });
-        // 更新按钮文字（中文界面显示 English，英文界面显示 中文）
-        const langBtn = document.getElementById('langToggle');
-        langBtn.innerText = (lang === 'zh') ? 'English' : '中文';
+        document.getElementById('langToggle').innerText = (lang === 'zh') ? 'English' : '中文';
     }
-
     document.getElementById('langToggle').addEventListener('click', () => {
         if (currentLang === 'zh') setLanguage('en');
         else setLanguage('zh');
     });
     setLanguage('zh');
-
-    // 平滑滚动锚点（导航栏和按钮中的 # 链接）
     document.querySelectorAll('.nav-links a[href^="#"], .cta-group a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             const targetId = this.getAttribute('href');
             if (targetId && targetId !== "#") {
                 const target = document.querySelector(targetId);
-                if (target) {
-                    e.preventDefault();
-                    target.scrollIntoView({ behavior: 'smooth' });
-                }
+                if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
             }
         });
     });
