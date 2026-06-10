@@ -73,7 +73,7 @@
 <body>
 <nav class="navbar"><div class="container nav-wrapper"><div class="logo">✧ ToLight ✧</div><div class="nav-links"><a href="index.html">产品</a><a href="#philosophy">设计哲学</a><a href="#features">智能生态</a><a href="#inspiration">灵感社区</a><button id="langToggle" class="lang-btn">English</button><a href="#" class="btn-primary">即刻探索</a></div></div></nav>
 <main>
-    <section class="hero-section"><div class="container"><div class="hero-badge">✨ Smarter by Design · 设计更智能</div><h1>重新定义光：<br>无限拼接，随心掌控</h1><p>ToLight 奇光板 — 模块化智能光艺系统，将空间变为可交互的光影画布。</p><div class="cta-group"><a href="#" class="btn-primary btn-large">探索新品系列</a><a href="#" class="btn-outline btn-large">欣赏灵感作品</a></div></div></section>
+    <section class="hero-section"><div class="container"><div class="hero-badge">✨ Smarter by Design · 设计更智能</div><h1>重新定义光：<br>无限拼接，随心掌控</h1><p>ToLight 奇光板 — 模块化智能光艺系统，将空间变为可交互的光影画布。</p><div class="cta-group"><a href="#products" class="btn-primary btn-large"><i class="fas fa-magic"></i> 探索新品系列</a><a href="#inspiration" class="btn-outline btn-large"><i class="fas fa-video"></i> 欣赏灵感作品</a></div></div></section>
     <section class="products-section" id="products"><div class="container"><div class="section-title">奇光板 · 光影矩阵</div><div class="section-sub">自由拼接，自适应任何空间氛围。</div><div class="product-grid">
         <a href="product1.html" class="product-card-link"><div class="product-card"><div class="product-img"><img src="https://images.pexels.com/photos/2765142/pexels-photo-2765142.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop" alt="Hexagon"></div><div class="product-info"><div class="product-title">六边形交响 · 蜂巢光韵</div><div class="product-desc">经典六角模块，渐变光晕与流畅色彩过渡。</div><span class="product-tag">#Connect+ 技术</span></div></div></a>
         <a href="product2.html" class="product-card-link"><div class="product-card"><div class="product-img"><img src="https://images.pexels.com/photos/4108683/pexels-photo-4108683.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop" alt="Triangle"></div><div class="product-info"><div class="product-title">三角变奏 · 锋芒锐利</div><div class="product-desc">锐角几何形态，多区域分区发光。</div><span class="product-tag">#音乐律动同步</span></div></div></a>
@@ -101,18 +101,20 @@
 </main>
 <footer class="footer-section"><div class="container footer-grid"><div class="footer-copyright"><div class="logo" style="font-size:1.5rem;">ToLight</div><p>© 2025 ToLight 奇光万物 · 光创未来</p></div><div class="footer-links"><a href="#">关于ToLight</a><a href="#">技术支持</a><a href="#">隐私条款</a><a href="#"><i class="fab fa-instagram"></i> Instagram</a><a href="#"><i class="fab fa-tiktok"></i> TikTok</a></div></div></footer>
 <script>
+    // 语言切换按钮（仅演示文字切换，如需完整双语可扩展）
     document.getElementById('langToggle').addEventListener('click', function() {
-        // 语言切换简化：仅演示按钮文字切换，实际多语言需维护，此处保持与之前相同逻辑可省略
         this.innerText = this.innerText === 'English' ? '中文' : 'English';
-        // 实际项目中需实现完整文本切换，为保持简洁，此处不做内容切换（详情页同理）
     });
-    // 平滑滚动（仅锚点）
-    document.querySelectorAll('.nav-links a[href^="#"]').forEach(anchor => {
+    // 平滑滚动锚点
+    document.querySelectorAll('.nav-links a[href^="#"], .cta-group a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             const targetId = this.getAttribute('href');
             if (targetId && targetId !== "#") {
                 const target = document.querySelector(targetId);
-                if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
             }
         });
     });
