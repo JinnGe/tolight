@@ -6,7 +6,7 @@
     <title>ToLight | 奇光板 · 智能光艺美学</title>
     <!-- Google Fonts: 现代科技感字体组合 -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Font Awesome 6 (免费图标库) -->
+    <!-- Font Awesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         * {
@@ -23,16 +23,6 @@
             scroll-behavior: smooth;
         }
 
-        /* 沉浸式纯色底 + 细微光晕 */
-        .bg-white-glow {
-            background: #FFFFFF;
-        }
-
-        .bg-soft-glow {
-            background: linear-gradient(145deg, #F8FAFE 0%, #F0F4FC 100%);
-        }
-
-        /* 自定义滚动条 */
         ::-webkit-scrollbar {
             width: 6px;
         }
@@ -50,7 +40,7 @@
             padding: 0 2rem;
         }
 
-        /* 导航栏 现代风格 */
+        /* 导航栏 */
         .navbar {
             padding: 1.5rem 0 1rem 0;
             position: sticky;
@@ -81,6 +71,7 @@
             display: flex;
             gap: 2rem;
             align-items: center;
+            flex-wrap: wrap;
         }
         .nav-links a {
             text-decoration: none;
@@ -163,7 +154,7 @@
             font-size: 1rem;
         }
 
-        /* 产品系列展示 - 网格卡片 */
+        /* 产品展示区 */
         .section-title {
             font-size: 2rem;
             font-weight: 600;
@@ -236,7 +227,7 @@
             color: #2C5A8C;
         }
 
-        /* 设计哲学区域 (修复居中) */
+        /* 设计哲学区域 ———— 完美居中 (使用grid + justify-content) */
         .philosophy {
             padding: 5rem 0;
             background: #F9FBFE;
@@ -244,15 +235,13 @@
             border-radius: 3rem;
         }
         .philosophy-grid {
-            display: flex;
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: repeat(3, minmax(240px, 280px));
             justify-content: center;
-            gap: 3rem;
-            max-width: 1100px;
+            gap: 2.5rem;
             margin: 0 auto;
         }
         .philosophy-card {
-            flex: 0 1 280px;
             text-align: center;
             padding: 1.5rem;
             background: transparent;
@@ -275,7 +264,7 @@
             text-align: center;
         }
 
-        /* 智能科技特性 */
+        /* 智能生态 */
         .features {
             padding: 3rem 0 5rem;
         }
@@ -303,7 +292,7 @@
             color: #2C5A8C;
         }
 
-        /* 社区灵感画廊 */
+        /* 灵感画廊 */
         .inspiration {
             background: #F2F6FC;
             border-radius: 2.5rem;
@@ -328,7 +317,7 @@
             display: block;
         }
 
-        /* 行动区 CTA */
+        /* CTA */
         .cta-section {
             background: linear-gradient(105deg, #EBF2FA 0%, #FFFFFF 100%);
             padding: 3rem;
@@ -353,12 +342,20 @@
         .footer-links {
             display: flex;
             gap: 2rem;
+            flex-wrap: wrap;
         }
         .footer-links a {
             text-decoration: none;
             color: #4B5E77;
         }
 
+        @media (max-width: 860px) {
+            .philosophy-grid {
+                grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+                max-width: 600px;
+                gap: 2rem;
+            }
+        }
         @media (max-width: 780px) {
             .container {
                 padding: 0 1.25rem;
@@ -370,16 +367,8 @@
                 flex-direction: column;
                 align-items: flex-start;
             }
-            .nav-links {
-                flex-wrap: wrap;
-                gap: 1rem;
-            }
             .section-title {
                 font-size: 1.8rem;
-            }
-            .philosophy-card {
-                flex: 0 1 100%;
-                max-width: 320px;
             }
         }
     </style>
@@ -402,7 +391,7 @@
 </nav>
 
 <main>
-    <!-- Hero 区域 -->
+    <!-- Hero -->
     <div class="container hero">
         <div class="hero-badge">✨ Smarter by Design · 设计更智能</div>
         <h1>重新定义光：<br>无限拼接，随心掌控</h1>
@@ -461,7 +450,7 @@
         </div>
     </div>
 
-    <!-- 设计哲学区块 (已修复居中) -->
+    <!-- 设计哲学区块 (已完美居中) -->
     <div class="container philosophy" id="design">
         <div class="section-title">我们的设计哲学</div>
         <div class="section-sub">以人为中心，创造兼具美感与智慧的智能照明体验。</div>
@@ -484,7 +473,7 @@
         </div>
     </div>
 
-    <!-- 智能技术特性 -->
+    <!-- 智能生态 -->
     <div class="container features" id="features">
         <div class="section-title">超越照明 · 智能生态</div>
         <div class="section-sub">全面支持 Matter，与主流智能家居无缝协同，光随心动。</div>
@@ -512,7 +501,7 @@
         </div>
     </div>
 
-    <!-- 社区灵感画廊 -->
+    <!-- 灵感画廊 -->
     <div class="container inspiration" id="inspiration">
         <div class="section-title">#ToLight 灵感社区</div>
         <div class="section-sub">全世界创意玩家正在用奇光板定义新潮空间，你的下一个灵感也许就在其中。</div>
@@ -524,7 +513,7 @@
         </div>
     </div>
 
-    <!-- CTA 转化区域 -->
+    <!-- CTA -->
     <div class="container cta-section">
         <h2 style="font-size: 1.8rem; margin-bottom: 0.8rem;">开启你的光艺之旅</h2>
         <p style="margin-bottom: 1.5rem;">加入全球100万+智能光玩家，现在探索全系列奇光板。</p>
@@ -549,8 +538,8 @@
     </div>
 </footer>
 
-<!-- 平滑滚动导航 -->
 <script>
+    // 平滑滚动
     document.querySelectorAll('.nav-links a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             const targetId = this.getAttribute('href');
