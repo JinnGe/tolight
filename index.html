@@ -236,7 +236,7 @@
             color: #2C5A8C;
         }
 
-        /* 设计哲学区域 */
+        /* 设计哲学区域 (修复居中) */
         .philosophy {
             padding: 5rem 0;
             background: #F9FBFE;
@@ -246,14 +246,17 @@
         .philosophy-grid {
             display: flex;
             flex-wrap: wrap;
-            gap: 3rem;
             justify-content: center;
+            gap: 3rem;
+            max-width: 1100px;
+            margin: 0 auto;
         }
         .philosophy-card {
-            flex: 1;
-            min-width: 200px;
+            flex: 0 1 280px;
             text-align: center;
             padding: 1.5rem;
+            background: transparent;
+            border-radius: 1.5rem;
         }
         .philosophy-icon {
             font-size: 2.8rem;
@@ -262,7 +265,14 @@
         }
         .philosophy-card h3 {
             font-weight: 600;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.75rem;
+            font-size: 1.3rem;
+        }
+        .philosophy-card p {
+            color: #4B5E77;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            text-align: center;
         }
 
         /* 智能科技特性 */
@@ -367,12 +377,16 @@
             .section-title {
                 font-size: 1.8rem;
             }
+            .philosophy-card {
+                flex: 0 1 100%;
+                max-width: 320px;
+            }
         }
     </style>
 </head>
 <body>
 
-<!-- 导航栏 (现代极简风格) -->
+<!-- 导航栏 -->
 <nav class="navbar">
     <div class="container nav-wrapper">
         <div class="logo">✧ ToLight ✧</div>
@@ -388,7 +402,7 @@
 </nav>
 
 <main>
-    <!-- Hero 区域 核心理念：更智能的设计 -->
+    <!-- Hero 区域 -->
     <div class="container hero">
         <div class="hero-badge">✨ Smarter by Design · 设计更智能</div>
         <h1>重新定义光：<br>无限拼接，随心掌控</h1>
@@ -399,7 +413,7 @@
         </div>
     </div>
 
-    <!-- 产品展示区 (奇光板搭配组合) -->
+    <!-- 产品展示区 -->
     <div class="container" id="products">
         <div class="section-title">奇光板 · 光影矩阵</div>
         <div class="section-sub">自由拼接，自适应任何空间氛围 — 电竞房、客厅、创意工作室，每一面墙皆是独特艺术品。</div>
@@ -447,7 +461,7 @@
         </div>
     </div>
 
-    <!-- 设计哲学区块 -->
+    <!-- 设计哲学区块 (已修复居中) -->
     <div class="container philosophy" id="design">
         <div class="section-title">我们的设计哲学</div>
         <div class="section-sub">以人为中心，创造兼具美感与智慧的智能照明体验。</div>
@@ -460,7 +474,7 @@
             <div class="philosophy-card">
                 <div class="philosophy-icon"><i class="fas fa-hand-peace"></i></div>
                 <h3>设计直观之物</h3>
-                <p>指尖触控、声控联动、App 极简交互，无需复杂设置即可享受光之魔法。</p>
+                <p>指尖触控、声控联动、App极简交互，无需复杂设置即可享受光之魔法。</p>
             </div>
             <div class="philosophy-card">
                 <div class="philosophy-icon"><i class="fas fa-users"></i></div>
@@ -470,7 +484,7 @@
         </div>
     </div>
 
-    <!-- 智能技术特性 支持主流生态 -->
+    <!-- 智能技术特性 -->
     <div class="container features" id="features">
         <div class="section-title">超越照明 · 智能生态</div>
         <div class="section-sub">全面支持 Matter，与主流智能家居无缝协同，光随心动。</div>
@@ -498,7 +512,7 @@
         </div>
     </div>
 
-    <!-- 社区灵感画廊 (实拍使用者案例) -->
+    <!-- 社区灵感画廊 -->
     <div class="container inspiration" id="inspiration">
         <div class="section-title">#ToLight 灵感社区</div>
         <div class="section-sub">全世界创意玩家正在用奇光板定义新潮空间，你的下一个灵感也许就在其中。</div>
@@ -537,7 +551,6 @@
 
 <!-- 平滑滚动导航 -->
 <script>
-    // 平滑滚动导航
     document.querySelectorAll('.nav-links a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             const targetId = this.getAttribute('href');
@@ -550,8 +563,6 @@
             }
         });
     });
-    // 简洁交互，无外部依赖
-    console.log('ToLight 品牌官网 · 灵感源自现代智能光艺设计');
 </script>
 </body>
 </html>
