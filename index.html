@@ -98,7 +98,7 @@
     </div></div></section>
     <section class="cta-section"><div class="container"><h2 style="font-size:1.8rem; margin-bottom:0.8rem;" data-i18n="cta_title">开启你的光艺之旅</h2><p style="margin-bottom:1.5rem;" data-i18n="cta_text">加入全球100万+智能光玩家，现在探索全系列奇光板。</p><a href="#" class="btn-primary btn-large" data-i18n="cta_btn">选购灵感套装 →</a></div></section>
 </main>
-<footer class="footer-section"><div class="container footer-grid"><div class="footer-copyright"><div class="logo" style="font-size:1.5rem;">ToLight</div><p data-i18n="footer_copyright">© 2025 ToLight 奇光万物 · 光创未来</p></div><div class="footer-links"><a href="#" data-i18n="footer_about">关于ToLight</a><a href="#" data-i18n="footer_support">技术支持</a><a href="#" data-i18n="footer_privacy">隐私条款</a><a href="#"><i class="fab fa-instagram"></i> Instagram</a><a href="#"><i class="fab fa-tiktok"></i> TikTok</a></div></div></footer>
+<footer class="footer-section"><div class="container footer-grid"><div class="footer-copyright"><div class="logo" style="font-size:1.5rem;">ToLight</div><p data-i18n="footer_copyright">© 2025 ToLight · 自由光形，随心所寓</p></div><div class="footer-links"><a href="#" data-i18n="footer_about">关于ToLight</a><a href="#" data-i18n="footer_support">技术支持</a><a href="#" data-i18n="footer_privacy">隐私条款</a><a href="#"><i class="fab fa-instagram"></i> Instagram</a><a href="#"><i class="fab fa-tiktok"></i> TikTok</a></div></div></footer>
 <script>
     const translations = {
         zh: {
@@ -121,7 +121,7 @@
             feat4_title: "1600万色 动态场景库", feat4_desc: "海量预设场景，自定义专属光影梦境。",
             insp_title: "#ToLight 灵感社区", insp_sub: "全世界创意玩家正在用奇光板定义新潮空间。",
             cta_title: "开启你的光艺之旅", cta_text: "加入全球100万+智能光玩家，现在探索全系列奇光板。", cta_btn: "选购灵感套装 →",
-            footer_copyright: "© 2025 ToLight 奇光万物 · 光创未来", footer_about: "关于ToLight", footer_support: "技术支持", footer_privacy: "隐私条款"
+            footer_copyright: "© 2025 ToLight · 自由光形，随心所寓", footer_about: "关于ToLight", footer_support: "技术支持", footer_privacy: "隐私条款"
         },
         en: {
             nav_products: "Products", nav_philosophy: "Design Philosophy", nav_features: "Smart Ecosystem", nav_inspiration: "Inspiration", nav_shop: "Shop Now",
@@ -143,7 +143,7 @@
             feat4_title: "16M Colors & Dynamic Scenes", feat4_desc: "Massive preset scenes and custom creations.",
             insp_title: "#ToLight Inspiration Community", insp_sub: "Creative players worldwide redefine spaces with ToLight.",
             cta_title: "Start Your Light Journey", cta_text: "Join over 1 million smart light enthusiasts.", cta_btn: "Shop Inspiration Kits →",
-            footer_copyright: "© 2025 ToLight · Light the Future", footer_about: "About ToLight", footer_support: "Support", footer_privacy: "Privacy"
+            footer_copyright: "© 2025 ToLight · Shape Your Light, Shape Your Space", footer_about: "About ToLight", footer_support: "Support", footer_privacy: "Privacy"
         }
     };
     let currentLang = 'zh';
@@ -154,7 +154,7 @@
             const key = el.getAttribute('data-i18n');
             if (t[key] !== undefined) {
                 if (el.tagName === 'H1' && key === 'hero_title') el.innerHTML = t[key];
-                else if (el.classList && el.classList.contains('hero-sub') && key === 'hero_sub') el.innerHTML = t[key];
+                else if (el.classList && el.classList.contains('hero-sub') && key === 'hero_sub') el.innerText = t[key];
                 else el.innerText = t[key];
             }
         });
