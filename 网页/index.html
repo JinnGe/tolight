@@ -101,11 +101,9 @@
 </main>
 <footer class="footer-section"><div class="container footer-grid"><div class="footer-copyright"><div class="logo" style="font-size:1.5rem;">ToLight</div><p>© 2025 ToLight 奇光万物 · 光创未来</p></div><div class="footer-links"><a href="#">关于ToLight</a><a href="#">技术支持</a><a href="#">隐私条款</a><a href="#"><i class="fab fa-instagram"></i> Instagram</a><a href="#"><i class="fab fa-tiktok"></i> TikTok</a></div></div></footer>
 <script>
-    // 语言切换按钮（仅演示文字切换，如需完整双语可扩展）
     document.getElementById('langToggle').addEventListener('click', function() {
         this.innerText = this.innerText === 'English' ? '中文' : 'English';
     });
-    // 平滑滚动锚点
     document.querySelectorAll('.nav-links a[href^="#"], .cta-group a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             const targetId = this.getAttribute('href');
