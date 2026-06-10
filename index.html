@@ -4,11 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>ToLight | 奇光板 · 智能光艺美学</title>
-    <!-- 现代字体 & 图标库 -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        /* reset & 基础 */
         * {
             margin: 0;
             padding: 0;
@@ -23,14 +21,13 @@
             scroll-behavior: smooth;
         }
 
-        /* 全局容器：所有独立区域内部再用 .container 来统一宽度并居中 */
         .container {
             max-width: 1280px;
             margin: 0 auto;
             padding: 0 2rem;
         }
 
-        /* 导航栏 (独立区域) */
+        /* 导航栏 */
         .navbar {
             position: sticky;
             top: 0;
@@ -73,6 +70,22 @@
         .nav-links a:hover {
             color: #2C6E9E;
         }
+        .lang-btn {
+            background: none;
+            border: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            cursor: pointer;
+            padding: 0.5rem 0.8rem;
+            border-radius: 40px;
+            transition: 0.2s;
+            font-family: inherit;
+            color: #2C3E50;
+        }
+        .lang-btn.active {
+            background: #1E2A3E;
+            color: white;
+        }
         .btn-outline {
             border: 1px solid #CBD5E1;
             padding: 0.5rem 1.2rem;
@@ -86,21 +99,28 @@
             border-color: #1E2A3E;
             color: white;
         }
+        /* 主要按钮调亮 —— 使用明亮的科技蓝 */
         .btn-primary {
-            background: #1E2A3E;
+            background: #2C7BE5;
             color: white;
             padding: 0.5rem 1.2rem;
             border-radius: 40px;
             font-weight: 500;
             border: none;
             transition: 0.2s;
+            box-shadow: 0 2px 6px rgba(44,123,229,0.2);
         }
         .btn-primary:hover {
-            background: #2C5A8C;
+            background: #1E5BBF;
             transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(44,123,229,0.3);
+        }
+        .btn-large {
+            padding: 0.9rem 2rem;
+            font-size: 1rem;
         }
 
-        /* Hero 区域 (独立区块) */
+        /* Hero 区域 */
         .hero-section {
             padding: 5rem 0 4rem;
             text-align: center;
@@ -138,12 +158,8 @@
             justify-content: center;
             flex-wrap: wrap;
         }
-        .btn-large {
-            padding: 0.9rem 2rem;
-            font-size: 1rem;
-        }
 
-        /* 公用标题样式 */
+        /* 公用标题 */
         .section-title {
             font-size: 2rem;
             font-weight: 600;
@@ -158,7 +174,7 @@
             margin: 0 auto 3rem;
         }
 
-        /* 产品区域 (独立) */
+        /* 产品区域 */
         .products-section {
             padding: 2rem 0 4rem;
         }
@@ -207,7 +223,7 @@
             color: #2C5A8C;
         }
 
-        /* 设计哲学区域 (独立区块 + 完美居中) */
+        /* 设计哲学区域 */
         .philosophy-section {
             background: #F9FBFE;
             padding: 5rem 0;
@@ -221,7 +237,7 @@
             gap: 2.5rem;
         }
         .philosophy-card {
-            flex: 0 0 280px;   /* 固定宽度，卡片整齐居中 */
+            flex: 0 0 280px;
             text-align: center;
             padding: 0 0.5rem;
         }
@@ -241,7 +257,7 @@
             line-height: 1.5;
         }
 
-        /* 智能生态区域 (独立) */
+        /* 智能生态 */
         .features-section {
             padding: 3rem 0 5rem;
         }
@@ -269,7 +285,7 @@
             color: #2C5A8C;
         }
 
-        /* 灵感社区区域 */
+        /* 灵感社区 */
         .inspiration-section {
             background: #F2F6FC;
             border-radius: 2.5rem;
@@ -290,7 +306,7 @@
             display: block;
         }
 
-        /* CTA 区域 */
+        /* CTA */
         .cta-section {
             background: linear-gradient(105deg, #EBF2FA, #FFFFFF);
             padding: 3rem;
@@ -299,7 +315,7 @@
             margin: 3rem 0;
         }
 
-        /* 页脚区域 */
+        /* 页脚 */
         .footer-section {
             padding: 3rem 0 2rem;
             border-top: 1px solid #E9EDF2;
@@ -322,7 +338,6 @@
             color: #4B5E77;
         }
 
-        /* 响应式：小屏幕下卡片宽度自适应并居中 */
         @media (max-width: 680px) {
             .philosophy-card {
                 flex: 0 0 100%;
@@ -348,137 +363,131 @@
 </head>
 <body>
 
-<!-- 独立区域：导航栏 -->
 <nav class="navbar">
     <div class="container nav-wrapper">
         <div class="logo">✧ ToLight ✧</div>
         <div class="nav-links">
-            <a href="#products">产品</a>
-            <a href="#philosophy">设计哲学</a>
-            <a href="#features">智能生态</a>
-            <a href="#inspiration">灵感社区</a>
-            <a href="#" class="btn-outline"><i class="fas fa-globe"></i> EN / 中文</a>
-            <a href="#" class="btn-primary"><i class="fas fa-shopping-bag"></i> 即刻探索</a>
+            <a href="#products" data-i18n-link-products>产品</a>
+            <a href="#philosophy" data-i18n-link-philosophy>设计哲学</a>
+            <a href="#features" data-i18n-link-features>智能生态</a>
+            <a href="#inspiration" data-i18n-link-inspiration>灵感社区</a>
+            <button id="langToggle" class="lang-btn">EN / 中文</button>
+            <a href="#" class="btn-primary" data-i18n-btn-shop><i class="fas fa-shopping-bag"></i> 即刻探索</a>
         </div>
     </div>
 </nav>
 
 <main>
-    <!-- 独立区域：Hero -->
     <section class="hero-section">
         <div class="container">
-            <div class="hero-badge">✨ Smarter by Design · 设计更智能</div>
-            <h1>重新定义光：<br>无限拼接，随心掌控</h1>
-            <p>ToLight 奇光板 — 模块化智能光艺系统，将空间变为可交互的光影画布。六边形、三角、线条矩阵，你的想象即是灯光的形态。</p>
+            <div class="hero-badge" data-i18n-badge>✨ Smarter by Design · 设计更智能</div>
+            <h1 data-i18n-hero-title>重新定义光：<br>无限拼接，随心掌控</h1>
+            <p data-i18n-hero-desc>ToLight 奇光板 — 模块化智能光艺系统，将空间变为可交互的光影画布。六边形、三角、线条矩阵，你的想象即是灯光的形态。</p>
             <div class="cta-group">
-                <a href="#" class="btn-primary btn-large"><i class="fas fa-magic"></i> 探索新品系列</a>
-                <a href="#" class="btn-outline btn-large"><i class="fas fa-video"></i> 欣赏灵感作品</a>
+                <a href="#" class="btn-primary btn-large" data-i18n-cta1><i class="fas fa-magic"></i> 探索新品系列</a>
+                <a href="#" class="btn-outline btn-large" data-i18n-cta2><i class="fas fa-video"></i> 欣赏灵感作品</a>
             </div>
         </div>
     </section>
 
-    <!-- 独立区域：产品展示 -->
     <section class="products-section" id="products">
         <div class="container">
-            <div class="section-title">奇光板 · 光影矩阵</div>
-            <div class="section-sub">自由拼接，自适应任何空间氛围 — 电竞房、客厅、创意工作室，每一面墙皆是独特艺术品。</div>
+            <div class="section-title" data-i18n-products-title>奇光板 · 光影矩阵</div>
+            <div class="section-sub" data-i18n-products-sub>自由拼接，自适应任何空间氛围 — 电竞房、客厅、创意工作室，每一面墙皆是独特艺术品。</div>
             <div class="product-grid">
                 <div class="product-card">
                     <div class="product-img"><img src="https://images.pexels.com/photos/2765142/pexels-photo-2765142.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop" alt="Hexagon"></div>
                     <div class="product-info">
-                        <div class="product-title">六边形交响 · 蜂巢光韵</div>
-                        <div class="product-desc">经典六角模块，渐变光晕与流畅色彩过渡，打造沉浸式背景光效。</div>
-                        <span class="product-tag">#Connect+ 技术</span>
+                        <div class="product-title" data-i18n-prod1-title>六边形交响 · 蜂巢光韵</div>
+                        <div class="product-desc" data-i18n-prod1-desc>经典六角模块，渐变光晕与流畅色彩过渡，打造沉浸式背景光效。</div>
+                        <span class="product-tag" data-i18n-prod1-tag>#Connect+ 技术</span>
                     </div>
                 </div>
                 <div class="product-card">
                     <div class="product-img"><img src="https://images.pexels.com/photos/4108683/pexels-photo-4108683.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop" alt="Triangle"></div>
                     <div class="product-info">
-                        <div class="product-title">三角变奏 · 锋芒锐利</div>
-                        <div class="product-desc">锐角几何形态，支持多区域分区发光，为科技宅注入赛博气息。</div>
-                        <span class="product-tag">#音乐律动同步</span>
+                        <div class="product-title" data-i18n-prod2-title>三角变奏 · 锋芒锐利</div>
+                        <div class="product-desc" data-i18n-prod2-desc>锐角几何形态，支持多区域分区发光，为科技宅注入赛博气息。</div>
+                        <span class="product-tag" data-i18n-prod2-tag>#音乐律动同步</span>
                     </div>
                 </div>
                 <div class="product-card">
                     <div class="product-img"><img src="https://images.pexels.com/photos/8566482/pexels-photo-8566482.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop" alt="Mixed"></div>
                     <div class="product-info">
-                        <div class="product-title">异形共鸣 · 混搭艺术</div>
-                        <div class="product-desc">六角+三角+线条自由融合，突破传统拼接规则，释放无限创造欲。</div>
-                        <span class="product-tag">#全场景自定义</span>
+                        <div class="product-title" data-i18n-prod3-title>异形共鸣 · 混搭艺术</div>
+                        <div class="product-desc" data-i18n-prod3-desc>六角+三角+线条自由融合，突破传统拼接规则，释放无限创造欲。</div>
+                        <span class="product-tag" data-i18n-prod3-tag>#全场景自定义</span>
                     </div>
                 </div>
                 <div class="product-card">
                     <div class="product-img"><img src="https://images.pexels.com/photos/1579396/pexels-photo-1579396.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop" alt="Music"></div>
                     <div class="product-info">
-                        <div class="product-title">光影律动 · 随音而舞</div>
-                        <div class="product-desc">内置高灵敏拾音器，灯光实时跟随节拍，唤醒派对灵魂。</div>
-                        <span class="product-tag">#Rhythm音乐可视化</span>
+                        <div class="product-title" data-i18n-prod4-title>光影律动 · 随音而舞</div>
+                        <div class="product-desc" data-i18n-prod4-desc>内置高灵敏拾音器，灯光实时跟随节拍，唤醒派对灵魂。</div>
+                        <span class="product-tag" data-i18n-prod4-tag>#Rhythm音乐可视化</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 独立区域：设计哲学 (确保卡片绝对居中) -->
     <section class="philosophy-section" id="philosophy">
         <div class="container">
-            <div class="section-title">我们的设计哲学</div>
-            <div class="section-sub">以人为中心，创造兼具美感与智慧的智能照明体验。</div>
+            <div class="section-title" data-i18n-philosophy-title>我们的设计哲学</div>
+            <div class="section-sub" data-i18n-philosophy-sub>以人为中心，创造兼具美感与智慧的智能照明体验。</div>
             <div class="philosophy-grid">
                 <div class="philosophy-card">
                     <div class="philosophy-icon"><i class="fas fa-lightbulb"></i></div>
-                    <h3>始于“为什么”</h3>
-                    <p>每一次创新都源于解决真实需求，让光不再是配角，而是情绪交互的核心界面。</p>
+                    <h3 data-i18n-phil1-title>始于“为什么”</h3>
+                    <p data-i18n-phil1-desc>每一次创新都源于解决真实需求，让光不再是配角，而是情绪交互的核心界面。</p>
                 </div>
                 <div class="philosophy-card">
                     <div class="philosophy-icon"><i class="fas fa-hand-peace"></i></div>
-                    <h3>设计直观之物</h3>
-                    <p>指尖触控、声控联动、App极简交互，无需复杂设置即可享受光之魔法。</p>
+                    <h3 data-i18n-phil2-title>设计直观之物</h3>
+                    <p data-i18n-phil2-desc>指尖触控、声控联动、App极简交互，无需复杂设置即可享受光之魔法。</p>
                 </div>
                 <div class="philosophy-card">
                     <div class="philosophy-icon"><i class="fas fa-users"></i></div>
-                    <h3>以人为本</h3>
-                    <p>聆听全球超过百万用户的反馈，让奇光板完美融入你的生活节奏。</p>
+                    <h3 data-i18n-phil3-title>以人为本</h3>
+                    <p data-i18n-phil3-desc>聆听全球超过百万用户的反馈，让奇光板完美融入你的生活节奏。</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 独立区域：智能生态 -->
     <section class="features-section" id="features">
         <div class="container">
-            <div class="section-title">超越照明 · 智能生态</div>
-            <div class="section-sub">全面支持 Matter，与主流智能家居无缝协同，光随心动。</div>
+            <div class="section-title" data-i18n-features-title>超越照明 · 智能生态</div>
+            <div class="section-sub" data-i18n-features-sub>全面支持 Matter，与主流智能家居无缝协同，光随心动。</div>
             <div class="features-grid">
                 <div class="feature-item">
                     <div class="feature-icon"><i class="fab fa-apple"></i></div>
-                    <h3>HomeKit & Matter 原生支持</h3>
-                    <p>Siri、Google Assistant、Alexa 语音联动，轻松构建全屋智慧光场景。</p>
+                    <h3 data-i18n-feat1-title>HomeKit & Matter 原生支持</h3>
+                    <p data-i18n-feat1-desc>Siri、Google Assistant、Alexa 语音联动，轻松构建全屋智慧光场景。</p>
                 </div>
                 <div class="feature-item">
                     <div class="feature-icon"><i class="fas fa-desktop"></i></div>
-                    <h3>屏幕镜像 · 沉浸同频</h3>
-                    <p>ToLight 桌面级应用实时拾取屏幕色彩，观影/游戏时光影同步，氛围至臻。</p>
+                    <h3 data-i18n-feat2-title>屏幕镜像 · 沉浸同频</h3>
+                    <p data-i18n-feat2-desc>ToLight 桌面级应用实时拾取屏幕色彩，观影/游戏时光影同步，氛围至臻。</p>
                 </div>
                 <div class="feature-item">
                     <div class="feature-icon"><i class="fas fa-hand-back-fist"></i></div>
-                    <h3>触控 + 手势交互</h3>
-                    <p>轻拍、划过奇光板即可切换场景/亮度，交互极具未来感。</p>
+                    <h3 data-i18n-feat3-title>触控 + 手势交互</h3>
+                    <p data-i18n-feat3-desc>轻拍、划过奇光板即可切换场景/亮度，交互极具未来感。</p>
                 </div>
                 <div class="feature-item">
                     <div class="feature-icon"><i class="fas fa-palette"></i></div>
-                    <h3>1600万色 动态场景库</h3>
-                    <p>海量预设场景、流动渐变色，更可自定义创造专属光影梦境。</p>
+                    <h3 data-i18n-feat4-title>1600万色 动态场景库</h3>
+                    <p data-i18n-feat4-desc>海量预设场景、流动渐变色，更可自定义创造专属光影梦境。</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 独立区域：灵感社区 -->
     <section class="inspiration-section" id="inspiration">
         <div class="container">
-            <div class="section-title">#ToLight 灵感社区</div>
-            <div class="section-sub">全世界创意玩家正在用奇光板定义新潮空间，你的下一个灵感也许就在其中。</div>
+            <div class="section-title" data-i18n-insp-title>#ToLight 灵感社区</div>
+            <div class="section-sub" data-i18n-insp-sub>全世界创意玩家正在用奇光板定义新潮空间，你的下一个灵感也许就在其中。</div>
             <div class="grid-gallery">
                 <div class="gallery-item"><img src="https://images.pexels.com/photos/1579396/pexels-photo-1579396.jpeg?auto=compress&cs=tinysrgb&w=300&h=200&fit=crop" alt="灵感"></div>
                 <div class="gallery-item"><img src="https://images.pexels.com/photos/4959566/pexels-photo-4959566.jpeg?auto=compress&cs=tinysrgb&w=300&h=200&fit=crop" alt="灵感"></div>
@@ -488,27 +497,25 @@
         </div>
     </section>
 
-    <!-- 独立区域：CTA -->
     <section class="cta-section">
         <div class="container">
-            <h2 style="font-size: 1.8rem; margin-bottom: 0.8rem;">开启你的光艺之旅</h2>
-            <p style="margin-bottom: 1.5rem;">加入全球100万+智能光玩家，现在探索全系列奇光板。</p>
-            <a href="#" class="btn-primary btn-large">选购灵感套装 →</a>
+            <h2 style="font-size: 1.8rem; margin-bottom: 0.8rem;" data-i18n-cta-title>开启你的光艺之旅</h2>
+            <p style="margin-bottom: 1.5rem;" data-i18n-cta-text>加入全球100万+智能光玩家，现在探索全系列奇光板。</p>
+            <a href="#" class="btn-primary btn-large" data-i18n-cta-btn>选购灵感套装 →</a>
         </div>
     </section>
 </main>
 
-<!-- 独立区域：页脚 -->
 <footer class="footer-section">
     <div class="container footer-grid">
         <div class="footer-copyright">
             <div class="logo" style="font-size: 1.5rem;">ToLight</div>
-            <p>© 2025 ToLight 奇光万物 · 光创未来</p>
+            <p data-i18n-footer-copyright>© 2025 ToLight 奇光万物 · 光创未来</p>
         </div>
         <div class="footer-links">
-            <a href="#">关于ToLight</a>
-            <a href="#">技术支持</a>
-            <a href="#">隐私条款</a>
+            <a href="#" data-i18n-footer-about>关于ToLight</a>
+            <a href="#" data-i18n-footer-support>技术支持</a>
+            <a href="#" data-i18n-footer-privacy>隐私条款</a>
             <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
             <a href="#"><i class="fab fa-tiktok"></i> TikTok</a>
         </div>
@@ -516,7 +523,185 @@
 </footer>
 
 <script>
-    // 平滑滚动锚点
+    // 中英文对照表 (内容未变，仅按钮颜色已调亮)
+    const translations = {
+        zh: {
+            link_products: "产品",
+            link_philosophy: "设计哲学",
+            link_features: "智能生态",
+            link_inspiration: "灵感社区",
+            btn_shop: "即刻探索",
+            badge: "✨ Smarter by Design · 设计更智能",
+            hero_title: "重新定义光：<br>无限拼接，随心掌控",
+            hero_desc: "ToLight 奇光板 — 模块化智能光艺系统，将空间变为可交互的光影画布。六边形、三角、线条矩阵，你的想象即是灯光的形态。",
+            cta1: "探索新品系列",
+            cta2: "欣赏灵感作品",
+            products_title: "奇光板 · 光影矩阵",
+            products_sub: "自由拼接，自适应任何空间氛围 — 电竞房、客厅、创意工作室，每一面墙皆是独特艺术品。",
+            prod1_title: "六边形交响 · 蜂巢光韵",
+            prod1_desc: "经典六角模块，渐变光晕与流畅色彩过渡，打造沉浸式背景光效。",
+            prod1_tag: "#Connect+ 技术",
+            prod2_title: "三角变奏 · 锋芒锐利",
+            prod2_desc: "锐角几何形态，支持多区域分区发光，为科技宅注入赛博气息。",
+            prod2_tag: "#音乐律动同步",
+            prod3_title: "异形共鸣 · 混搭艺术",
+            prod3_desc: "六角+三角+线条自由融合，突破传统拼接规则，释放无限创造欲。",
+            prod3_tag: "#全场景自定义",
+            prod4_title: "光影律动 · 随音而舞",
+            prod4_desc: "内置高灵敏拾音器，灯光实时跟随节拍，唤醒派对灵魂。",
+            prod4_tag: "#Rhythm音乐可视化",
+            philosophy_title: "我们的设计哲学",
+            philosophy_sub: "以人为中心，创造兼具美感与智慧的智能照明体验。",
+            phil1_title: "始于“为什么”",
+            phil1_desc: "每一次创新都源于解决真实需求，让光不再是配角，而是情绪交互的核心界面。",
+            phil2_title: "设计直观之物",
+            phil2_desc: "指尖触控、声控联动、App极简交互，无需复杂设置即可享受光之魔法。",
+            phil3_title: "以人为本",
+            phil3_desc: "聆听全球超过百万用户的反馈，让奇光板完美融入你的生活节奏。",
+            features_title: "超越照明 · 智能生态",
+            features_sub: "全面支持 Matter，与主流智能家居无缝协同，光随心动。",
+            feat1_title: "HomeKit & Matter 原生支持",
+            feat1_desc: "Siri、Google Assistant、Alexa 语音联动，轻松构建全屋智慧光场景。",
+            feat2_title: "屏幕镜像 · 沉浸同频",
+            feat2_desc: "ToLight 桌面级应用实时拾取屏幕色彩，观影/游戏时光影同步，氛围至臻。",
+            feat3_title: "触控 + 手势交互",
+            feat3_desc: "轻拍、划过奇光板即可切换场景/亮度，交互极具未来感。",
+            feat4_title: "1600万色 动态场景库",
+            feat4_desc: "海量预设场景、流动渐变色，更可自定义创造专属光影梦境。",
+            insp_title: "#ToLight 灵感社区",
+            insp_sub: "全世界创意玩家正在用奇光板定义新潮空间，你的下一个灵感也许就在其中。",
+            cta_title: "开启你的光艺之旅",
+            cta_text: "加入全球100万+智能光玩家，现在探索全系列奇光板。",
+            cta_btn: "选购灵感套装 →",
+            footer_copyright: "© 2025 ToLight 奇光万物 · 光创未来",
+            footer_about: "关于ToLight",
+            footer_support: "技术支持",
+            footer_privacy: "隐私条款"
+        },
+        en: {
+            link_products: "Products",
+            link_philosophy: "Design Philosophy",
+            link_features: "Smart Ecosystem",
+            link_inspiration: "Inspiration",
+            btn_shop: "Shop Now",
+            badge: "✨ Smarter by Design",
+            hero_title: "Redefine Light:<br>Infinite Combinations, Total Control",
+            hero_desc: "ToLight — modular smart light art system, turning spaces into interactive canvases. Hexagons, triangles, lines — your imagination shapes the light.",
+            cta1: "Explore New Collection",
+            cta2: "View Gallery",
+            products_title: "Luminous Panels · Light Matrix",
+            products_sub: "Freeform arrangement adapts to any space — gaming rooms, living rooms, studios. Every wall becomes a unique artwork.",
+            prod1_title: "Hex Symphony · Hive Glow",
+            prod1_desc: "Classic hexagonal modules with smooth gradient glow for an immersive backdrop.",
+            prod1_tag: "#Connect+ Tech",
+            prod2_title: "Triangular Rhythm · Sharp Edge",
+            prod2_desc: "Angular geometry with zone lighting, injecting cyberpunk vibes into tech spaces.",
+            prod2_tag: "#Music Sync",
+            prod3_title: "Morph Mix · Free Art",
+            prod3_desc: "Hexagons, triangles, lines — break the rules and unleash infinite creativity.",
+            prod3_tag: "#Full Custom",
+            prod4_title: "Light Dance · Music Reactive",
+            prod4_desc: "Built-in high-sensitivity mic, lights pulse to the beat, igniting party spirits.",
+            prod4_tag: "#Rhythm Visualization",
+            philosophy_title: "Our Design Philosophy",
+            philosophy_sub: "Human-centered, blending beauty and intelligence for smart lighting experiences.",
+            phil1_title: "Start with 'Why'",
+            phil1_desc: "Every innovation solves real needs, making light a core interface for emotional interaction.",
+            phil2_title: "Design Intuitively",
+            phil2_desc: "Touch, voice, app — effortless control, enjoy the magic of light without complexity.",
+            phil3_title: "Human First",
+            phil3_desc: "Listening to millions of users worldwide, ToLight fits perfectly into your life rhythm.",
+            features_title: "Beyond Illumination · Smart Ecosystem",
+            features_sub: "Full Matter support, seamless integration with mainstream smart homes.",
+            feat1_title: "HomeKit & Matter Native Support",
+            feat1_desc: "Voice control with Siri, Google Assistant, Alexa — build whole-home smart lighting scenes.",
+            feat2_title: "Screen Mirroring · Immersive Sync",
+            feat2_desc: "Desktop app captures screen colors, synchronizing light with movies/games for ultimate ambiance.",
+            feat3_title: "Touch + Gesture Control",
+            feat3_desc: "Tap or swipe on panels to change scenes/brightness — a futuristic interaction.",
+            feat4_title: "16M Colors & Dynamic Scenes",
+            feat4_desc: "Massive preset scenes and gradients, plus custom creations for your dream lightscape.",
+            insp_title: "#ToLight Inspiration Community",
+            insp_sub: "Creative players worldwide are redefining spaces with ToLight. Your next inspiration is here.",
+            cta_title: "Start Your Light Journey",
+            cta_text: "Join over 1 million smart light enthusiasts. Explore the full collection now.",
+            cta_btn: "Shop Inspiration Kits →",
+            footer_copyright: "© 2025 ToLight · Light the Future",
+            footer_about: "About ToLight",
+            footer_support: "Support",
+            footer_privacy: "Privacy"
+        }
+    };
+
+    let currentLang = 'zh';
+
+    function setLanguage(lang) {
+        currentLang = lang;
+        const t = translations[lang];
+        document.querySelector('[data-i18n-link-products]').innerText = t.link_products;
+        document.querySelector('[data-i18n-link-philosophy]').innerText = t.link_philosophy;
+        document.querySelector('[data-i18n-link-features]').innerText = t.link_features;
+        document.querySelector('[data-i18n-link-inspiration]').innerText = t.link_inspiration;
+        document.querySelector('[data-i18n-btn-shop]').innerHTML = `<i class="fas fa-shopping-bag"></i> ${t.btn_shop}`;
+        document.querySelector('[data-i18n-badge]').innerText = t.badge;
+        document.querySelector('[data-i18n-hero-title]').innerHTML = t.hero_title;
+        document.querySelector('[data-i18n-hero-desc]').innerText = t.hero_desc;
+        document.querySelector('[data-i18n-cta1]').innerHTML = `<i class="fas fa-magic"></i> ${t.cta1}`;
+        document.querySelector('[data-i18n-cta2]').innerHTML = `<i class="fas fa-video"></i> ${t.cta2}`;
+        document.querySelector('[data-i18n-products-title]').innerText = t.products_title;
+        document.querySelector('[data-i18n-products-sub]').innerText = t.products_sub;
+        document.querySelector('[data-i18n-prod1-title]').innerText = t.prod1_title;
+        document.querySelector('[data-i18n-prod1-desc]').innerText = t.prod1_desc;
+        document.querySelector('[data-i18n-prod1-tag]').innerText = t.prod1_tag;
+        document.querySelector('[data-i18n-prod2-title]').innerText = t.prod2_title;
+        document.querySelector('[data-i18n-prod2-desc]').innerText = t.prod2_desc;
+        document.querySelector('[data-i18n-prod2-tag]').innerText = t.prod2_tag;
+        document.querySelector('[data-i18n-prod3-title]').innerText = t.prod3_title;
+        document.querySelector('[data-i18n-prod3-desc]').innerText = t.prod3_desc;
+        document.querySelector('[data-i18n-prod3-tag]').innerText = t.prod3_tag;
+        document.querySelector('[data-i18n-prod4-title]').innerText = t.prod4_title;
+        document.querySelector('[data-i18n-prod4-desc]').innerText = t.prod4_desc;
+        document.querySelector('[data-i18n-prod4-tag]').innerText = t.prod4_tag;
+        document.querySelector('[data-i18n-philosophy-title]').innerText = t.philosophy_title;
+        document.querySelector('[data-i18n-philosophy-sub]').innerText = t.philosophy_sub;
+        document.querySelector('[data-i18n-phil1-title]').innerText = t.phil1_title;
+        document.querySelector('[data-i18n-phil1-desc]').innerText = t.phil1_desc;
+        document.querySelector('[data-i18n-phil2-title]').innerText = t.phil2_title;
+        document.querySelector('[data-i18n-phil2-desc]').innerText = t.phil2_desc;
+        document.querySelector('[data-i18n-phil3-title]').innerText = t.phil3_title;
+        document.querySelector('[data-i18n-phil3-desc]').innerText = t.phil3_desc;
+        document.querySelector('[data-i18n-features-title]').innerText = t.features_title;
+        document.querySelector('[data-i18n-features-sub]').innerText = t.features_sub;
+        document.querySelector('[data-i18n-feat1-title]').innerText = t.feat1_title;
+        document.querySelector('[data-i18n-feat1-desc]').innerText = t.feat1_desc;
+        document.querySelector('[data-i18n-feat2-title]').innerText = t.feat2_title;
+        document.querySelector('[data-i18n-feat2-desc]').innerText = t.feat2_desc;
+        document.querySelector('[data-i18n-feat3-title]').innerText = t.feat3_title;
+        document.querySelector('[data-i18n-feat3-desc]').innerText = t.feat3_desc;
+        document.querySelector('[data-i18n-feat4-title]').innerText = t.feat4_title;
+        document.querySelector('[data-i18n-feat4-desc]').innerText = t.feat4_desc;
+        document.querySelector('[data-i18n-insp-title]').innerText = t.insp_title;
+        document.querySelector('[data-i18n-insp-sub]').innerText = t.insp_sub;
+        document.querySelector('[data-i18n-cta-title]').innerText = t.cta_title;
+        document.querySelector('[data-i18n-cta-text]').innerText = t.cta_text;
+        document.querySelector('[data-i18n-cta-btn]').innerText = t.cta_btn;
+        document.querySelector('[data-i18n-footer-copyright]').innerText = t.footer_copyright;
+        document.querySelector('[data-i18n-footer-about]').innerText = t.footer_about;
+        document.querySelector('[data-i18n-footer-support]').innerText = t.footer_support;
+        document.querySelector('[data-i18n-footer-privacy]').innerText = t.footer_privacy;
+
+        const langBtn = document.getElementById('langToggle');
+        if (lang === 'zh') langBtn.innerText = '中文';
+        else langBtn.innerText = 'English';
+    }
+
+    const langToggle = document.getElementById('langToggle');
+    langToggle.addEventListener('click', () => {
+        if (currentLang === 'zh') setLanguage('en');
+        else setLanguage('zh');
+    });
+    setLanguage('zh');
+
     document.querySelectorAll('.nav-links a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             const targetId = this.getAttribute('href');
